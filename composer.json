@@ -1,0 +1,19 @@
+{
+    "name": "bdanzer/danzerpress-plugin",
+    "type": "wordpress-muplugin",
+    "repositories": [
+        {
+        "type": "composer",
+        "url": "http://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bdanzer/danzerpress-plugin.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Danzerpress\\": ["dpsections", "dpsections/contexts", "dpsections/sections"]
+        }
+    }
+}

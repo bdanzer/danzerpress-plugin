@@ -1,0 +1,24 @@
+<div class="danzerpress-four-fifths danzerpress-col-center">
+	<div class="danzerpress-flex-row danzerpess-row-fix">
+
+		<div class="danzerpress-col-2 {{ dp.image_side(layout.image_side).order }}">
+        	{% if (layout.image_repeater) %}
+			 	<div class="danzerpress-flex-row">
+				 	{% for image in layout.image_repeater %}
+						<div class="danzerpress-col-2 danzerpress-md-2 danzerprss-sm-2 danzerpress-xs-2 wow zoomIn">
+							<div class="danzerpress-image-wrap">
+							<a data-fancybox="four-image-section" href="{{image.image}}"><img src="{{image.image|resize(480)}}"></a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="danzerpress-col-2 danzerpress-flex-column danzerpress-justify-center">
+			<h2 class="danzerpress-title" style="">{{ layout.section_title }}</h2>
+			<p style="text-align: center; font-size: 18px;margin-bottom: 40px;">{{ layout.section_description }}</p>
+			{% include 'templates/dp-sections/section-parts/content-buttons.twig' %}
+		</div>
+		
+	</div>
+</div>

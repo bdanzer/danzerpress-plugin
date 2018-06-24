@@ -1,0 +1,6 @@
+{% if (layout.button_text_left or layout.button_text_right) %}
+	<p class="danzerpress-button-wrap" style="margin-top: 20px;">
+		<a href="{{ layout.button_link_left }}" class="danzerpress-button-modern danzerpress-button-left danzerpress-hash wow rubberBand">{{ layout.button_text_left }}</a>
+		<a href="{{ layout.button_link_right }}" class="danzerpress-button-modern-transparent {{ dp.get_color(layout.background_type) }} danzerpress-hash wow fadeIn">{{ layout.button_text_right }}</a>
+	</p>
+{% endif %}

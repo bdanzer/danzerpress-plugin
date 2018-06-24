@@ -1,0 +1,7 @@
+<div class="danzerpress-flex-row">
+	{% if (layout.image_or_video == 'image' or layout.image_or_video == 'video') %}
+		{% include 'templates/dp-sections/section-parts/image/media-content.twig' %}
+	{% elseif (layout.image_or_video == 'longimage') %}
+		{% include 'templates/dp-sections/section-parts/image/long-image.twig' %}
+	{% endif %}
+</div>

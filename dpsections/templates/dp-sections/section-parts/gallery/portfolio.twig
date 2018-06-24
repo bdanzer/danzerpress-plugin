@@ -1,0 +1,16 @@
+<div class="danzerpress-two-thirds danzerpress-col-center">
+	<h2 class="danzerpress-title" style="margin-bottom: 40px;">{{ layout.section_title }}</h2>
+	{% if (layout.portfolio_repeater) %}
+		<div class="danzerpress-flex-row danzerpress-row-fix">
+			{% for portfolio in layout.portfolio_repeater %}
+				<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzerpress-xs-2 portfolio-section wow fadeInUp">
+					<div class="danzerpress-image-wrap danzerpress-tilt" data-tilt>
+						<a href="{{ portfolio.link }}">
+							<img src="{{ portfolio.image }}">
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+</div>
