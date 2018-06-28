@@ -2,13 +2,14 @@
 namespace Danzerpress;
 
 use Timber;
+use Danzerpress\AcfContextHelper;
 use Danzerpress\Hero;
 use Danzerpress\Media;
 use Danzerpress\Icon;
 use Danzerpress\Gallery;
 use Danzerpress\Text;
 use Danzerpress\RawCode;
-use Danzerpress\AcfContextHelper;
+use Danzerpress\Price;
 
 class Sections 
 {
@@ -25,6 +26,7 @@ class Sections
 			Gallery::create();
 			Text::create();
 			RawCode::create();
+			Price::create();
 
 			$this->context = Timber::get_context();
 			$this->context['post'] = Timber::get_post(get_the_ID());

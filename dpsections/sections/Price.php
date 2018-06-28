@@ -5,7 +5,7 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Media extends Section
+class Price extends Section
 {
 	protected static $context;
 	public static $section_name = 'danzerpress-price-section';
