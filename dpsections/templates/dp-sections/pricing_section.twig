@@ -4,10 +4,10 @@
 	    {% for sub in layout.pricing_blocks %}
 	       <div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzerpress-xs-1">
 				<div class="danzerpress-content-wrap">
-					<h1>{{ sub.price }}"</h1>
 					<div class="danzerpress-content-box wow fadeInUp">
 						<h4>{{ sub.pricing_name }}</h4>
 						<p>{{ sub.pricing_content }}</p>
+						<span class="price">{{ sub.price }}</span>
 					</div>
                     <a href="{{ sub.pricing_button_target }}" class="danzerpress-button-modern">{{ sub.pricing_button_text }}</a>
 				</div>
