@@ -7,7 +7,8 @@
 					<div class="danzerpress-content-box wow fadeInUp">
 						<h4>{{ sub.pricing_name }}</h4>
 						<p>{{ sub.pricing_content }}</p>
-						<span class="price">{{ sub.price }}</span>
+						<span class="price">${{ sub.price }}</span>
+						<span class="frequency">{{ sub.frequency }}</span>
 					</div>
                     <a href="{{ sub.pricing_button_target }}" class="danzerpress-button-modern">{{ sub.pricing_button_text }}</a>
 				</div>
