@@ -6,14 +6,15 @@
 				<div class="danzerpress-content-wrap">
 					<div class="danzerpress-content-box wow fadeInUp">
 						<h4>{{ sub.pricing_name }}</h4>
+						<div class="price-wrap">
+							<span class="price">${{ sub.price }}</span>
+							<span class="frequency">{{ sub.frequency }}</span>
+						</div>
 						<p>{{ sub.pricing_content }}</p>
-						<span class="price">${{ sub.price }}</span>
-						<span class="frequency">{{ sub.frequency }}</span>
 					</div>
-                    <a href="{{ sub.pricing_button_target }}" class="danzerpress-button-modern">{{ sub.pricing_button_text }}</a>
 				</div>
+				<a href="{{ sub.pricing_button_target }}" class="danzerpress-button-modern">{{ sub.pricing_button_text }}</a>
 			</div>
 	    {% endfor %}
 	</div>
-	{% include 'templates/dp-sections/section-parts/content-buttons.twig' %}
 </div>
