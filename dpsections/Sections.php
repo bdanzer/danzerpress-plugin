@@ -10,6 +10,8 @@ use Danzerpress\Gallery;
 use Danzerpress\Text;
 use Danzerpress\RawCode;
 use Danzerpress\Price;
+use Danzerpress\Action;
+use Danzerpress\Testimonial;
 
 class Sections 
 {
@@ -27,6 +29,8 @@ class Sections
 			Text::create();
 			RawCode::create();
 			Price::create();
+			Action::create();
+			Testimonial::create();
 
 			$this->context = Timber::get_context();
 			$this->context['post'] = Timber::get_post(get_the_ID());

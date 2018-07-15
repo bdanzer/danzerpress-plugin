@@ -73,6 +73,11 @@ class AcfContextHelper
 		
 	}
 
+	public function get_background($iterator)
+	{
+
+	}
+
 	public function section_image($section_image) 
 	{
 		if ($section_image) {
@@ -128,4 +133,13 @@ class AcfContextHelper
 	    	'wow' => $wowclass
 	    ];
 	}
+
+	public function get_stars($stars) 
+    {
+        $html = '';
+        for ($i = 0; $i < (int)$stars; $i++) {
+            $html .= '<i class="fa fa-star"></i>';
+        }
+        return $html;
+    }
 }
