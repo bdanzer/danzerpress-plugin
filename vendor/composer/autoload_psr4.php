@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Danzerpress\\filters\\' => array($baseDir . '/filters'),
     'Danzerpress\\' => array($baseDir . '/dpsections', $baseDir . '/dpsections/contexts', $baseDir . '/dpsections/sections'),
 );

@@ -9,11 +9,16 @@ class ComposerStaticInit508cdd33b578495c44c01c4f72ba8183
     public static $prefixLengthsPsr4 = array (
         'D' => 
         array (
+            'Danzerpress\\filters\\' => 20,
             'Danzerpress\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Danzerpress\\filters\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/filters',
+        ),
         'Danzerpress\\' => 
         array (
             0 => __DIR__ . '/../..' . '/dpsections',
