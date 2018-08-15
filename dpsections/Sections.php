@@ -2,16 +2,8 @@
 namespace Danzerpress;
 
 use Timber;
-use Danzerpress\AcfContextHelper;
-use Danzerpress\Hero;
-use Danzerpress\Media;
-use Danzerpress\Icon;
-use Danzerpress\Gallery;
-use Danzerpress\Text;
-use Danzerpress\RawCode;
-use Danzerpress\Price;
-use Danzerpress\Action;
-use Danzerpress\Testimonial;
+use Danzerpress\Contexts\Danzerpress;
+use Danzerpress\Contexts\DanzerpressPostContext;
 
 class Sections 
 {
@@ -32,8 +24,8 @@ class Sections
 			Action::create();
 			Testimonial::create();
 
-			$this->context = Timber::get_context();
-			$this->context['post'] = Timber::get_post(get_the_ID());
+			$this->context = Danzerpress::get_context();
+			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
 	   		$this->context['section'] = self::$sections;
@@ -55,8 +47,7 @@ class Sections
 
 	public function loop_layouts() 
 	{
-		$cache = (get_field('cache', 'option')) ? 900 : null;
-		Timber::render('templates/dp-sections/danzerpress-sections.twig', $this->context);
+		Timber::render('templates/dp-sections/danzerpress-sections.twig', $this->context, Danzerpress::get_ttl());
 	}
 
 	public function render() 
