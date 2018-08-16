@@ -1,5 +1,5 @@
 {
-    "name": "bdanzer/danzerpress-plugin",
+    "name": "bdanzer/dp-plugin",
     "type": "wordpress-plugin",
     "repositories": [
         {
