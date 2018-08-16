@@ -1,6 +1,6 @@
 {
     "name": "bdanzer/danzerpress-plugin",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-plugin",
     "repositories": [
         {
         "type": "composer",
