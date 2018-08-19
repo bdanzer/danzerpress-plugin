@@ -1,0 +1,14 @@
+<div class="danzerpress-col-1 danzerpress-col-center">
+	<div class="danzerpress-flex-row danzerpress-row-fix">
+		<div class="danzerpress-col-2 {{ dp.image_side(layout.image_side).order }} danzerpress-flex-column danzerpress-align-content danzerpress-justify-center">
+			{{ layout.codescripts }}
+		</div>
+		<div class="danzerpress-col-2 danzerpress-flex-row">
+			<div class="danzerpress-section-content danzerpress-align-self">
+				<h2 class="danzerpress-title wow fadeIn">{{ layout.section_title }}</h2>
+				<p class="wow fadeIn image-section-p">{{ layout.section_description }}</p>
+				{% include 'templates/dp-sections/section-parts/content-buttons.twig' %}
+			</div>
+		</div>
+	</div>
+</div>
