@@ -23,6 +23,8 @@ class Sections
 			Price::create();
 			Action::create();
 			Testimonial::create();
+			Map::create();
+			Team::create();
 
 			$this->context = Danzerpress::get_context();
 			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
