@@ -2,7 +2,7 @@
     {% for sub in layout.icons_repeater %}
         <div class="{{layout.icons_layout}} icon-wrap danzerpress-col-{{ layout.number_of_rows }} danzerpress-md-2 danzerpress-sm-2 danzerpress-xs-1">
             {{(sub.link) ? '<a href="' ~ sub.link ~ '">' : '' }}
-                <div class="danzerpress-content-wrap">
+                <div class="danzerpress-box danzerpress-background">
                     {% if (sub.image) %}
                         <div class="danzerpress-icon-box wow zoomIn">
                             <img src="{{ sub.image }}">

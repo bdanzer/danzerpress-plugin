@@ -13,10 +13,11 @@ class Sections
 
 	public function __construct() 
 	{
+		$this->context = Danzerpress::get_context();
+		
 		if( have_rows($this->flexible_layout) ) {
 			$this->init_sections();	
 
-			$this->context = Danzerpress::get_context();
 			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
@@ -24,7 +25,9 @@ class Sections
 	   		$this->context['flexible_layout'] = $this->flexible_layout;
 	   		
 			$this->render();
-	   	}
+	   	} else {
+			$this->no_layouts();
+		}
 	}
 
 	public function init_sections() 
@@ -46,6 +49,11 @@ class Sections
 	public static function set_sections($section) 
 	{
 		self::$sections[$section['section_slug']] = $section;
+	}
+
+	public function no_layouts() 
+	{
+		Timber::render('templates/dp-sections/no_template.twig', $this->context);
 	}
 
 	public function loop_layouts() 
