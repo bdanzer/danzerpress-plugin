@@ -14,17 +14,7 @@ class Sections
 	public function __construct() 
 	{
 		if( have_rows($this->flexible_layout) ) {
-			Hero::create();
-			Media::create();
-			Icon::create();
-			Gallery::create();
-			Text::create();
-			RawCode::create();
-			Price::create();
-			Action::create();
-			Testimonial::create();
-			Map::create();
-			Team::create();
+			$this->init_sections();	
 
 			$this->context = Danzerpress::get_context();
 			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
@@ -35,6 +25,17 @@ class Sections
 	   		
 			$this->render();
 	   	}
+	}
+
+	public function init_sections() 
+	{
+		$dir = __DIR__;
+		$files = glob($dir . '/sections/*.php');
+		foreach ($files as $file) {
+			$basename = basename($file);
+			$class_name = 'Danzerpress\\' . str_replace('.php', '', $basename);
+			$class_name::create();
+		}
 	}
 
 	public static function get_sections() 
