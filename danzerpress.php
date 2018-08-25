@@ -10,3 +10,4 @@ if ( file_exists( $autoload_path ) ) {
 }
 
 new Danzerpress\filters\DanzerpressFilters;
+new Danzerpress\PluginAssetLoader;

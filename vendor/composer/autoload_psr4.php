@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Danzerpress\\filters\\' => array($baseDir . '/filters'),
-    'Danzerpress\\' => array($baseDir . '/dpsections', $baseDir . '/dpsections/contexts', $baseDir . '/dpsections/sections'),
+    'Danzerpress\\' => array($baseDir . '/dpsections', $baseDir . '/dpsections/contexts', $baseDir . '/dpsections/sections', $baseDir . '/inc'),
 );

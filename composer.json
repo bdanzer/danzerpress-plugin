@@ -13,8 +13,15 @@
     ],
     "autoload": {
         "psr-4": {
-            "Danzerpress\\": ["dpsections", "dpsections/contexts", "dpsections/sections"],
-            "Danzerpress\\filters\\" : ["filters"]
+            "Danzerpress\\": [
+                "dpsections", 
+                "dpsections/contexts", 
+                "dpsections/sections", 
+                "inc"
+            ],
+            "Danzerpress\\filters\\" : [
+                "filters"
+            ]
         }
     }
 }

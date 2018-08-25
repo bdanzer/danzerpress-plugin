@@ -24,6 +24,7 @@ class ComposerStaticInit508cdd33b578495c44c01c4f72ba8183
             0 => __DIR__ . '/../..' . '/dpsections',
             1 => __DIR__ . '/../..' . '/dpsections/contexts',
             2 => __DIR__ . '/../..' . '/dpsections/sections',
+            3 => __DIR__ . '/../..' . '/inc',
         ),
     );
 
