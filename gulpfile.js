@@ -37,13 +37,13 @@ gulp.task('bower', function() {
 });
 
 gulp.task('clean', function () {
-  return gulp.src('js/dist/*', {read: false})
+  return gulp.src('./dist/*', {read: false})
       .pipe(clean());
 });
 
 // Minify Custom JavaScript files
 gulp.task('custom-scripts', function() {
-  return gulp.src('./js/*.js')
+  return gulp.src('./resources/js/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
     .pipe(uglify())
@@ -87,7 +87,7 @@ options.autoprefixer = {
 };
 
 gulp.task('sass', function() {
-  return gulp.src('./sass/plugin.scss')
+  return gulp.src('./resources/sass/plugin.scss')
     .pipe(sourcemaps.init())
     .pipe( plumber( { errorHandler: onError } ) )
     .pipe(sass(options.sass))
@@ -102,7 +102,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('style', function() {
-  return gulp.src(['css/**/*.css', 'css/*.css'])
+  return gulp.src(['./resources/css/**/*.css', 'css/*.css'])
     .pipe(concatCss("custom.css"))
     .pipe( minifycss() )
     .pipe( rename( {
@@ -124,13 +124,13 @@ gulp.task('images', function() {
 
 gulp.task( 'watch', function() {
   // don't listen to whole js folder, it'll create an infinite loop
-  gulp.watch( [ './js/**/*.js', '!./js/dist/*.js' ], [ 'clean'], scripts);
+  gulp.watch( [ './resources/js/**/*.js', '!./js/dist/*.js' ], [ 'scripts'], scripts);
 
-  gulp.watch( './sass/**/*.scss', ['sass'] );
+  gulp.watch( './resources/sass/**/*.scss', ['sass'] );
 
-  gulp.watch( ['css/**/*.css', 'css/*.css'], ['style'] );
+  gulp.watch( ['/resources/css/**/*.css', 'css/*.css'], ['style'] );
 
-  gulp.watch( './images/**/*', ['images']);
+  gulp.watch( './resources/images/**/*', ['images']);
 } );
 
 gulp.task( 'default', ['bower', 'scripts','sass','style','images']);
