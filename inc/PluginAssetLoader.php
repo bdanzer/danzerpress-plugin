@@ -26,7 +26,7 @@ class PluginAssetLoader {
         wp_enqueue_style('danzerpress-plugin-css', $plugin_url . 'dist/plugin.min.css');
 
         //plugin js
-        wp_enqueue_script('danzerpress-plugin-js', $plugin_url . '/danzerpress-plugin/dist/plugin.min.js', array(), null, true);
+        wp_enqueue_script('danzerpress-plugin-js', $plugin_url . 'dist/plugin.min.js', array(), null, true);
     }
 
     public function timber_locations() 
