@@ -16,11 +16,17 @@ class PluginAssetLoader {
 
     public function enqueue_scripts() 
     {
+        if (IS_DEV) {
+            $plugin_url = plugins_url() . '/danzerpress-plugin/';
+        } else {
+            $plugin_url = plugins_url() . '/dp-plugin/';
+        }
+
         //plugin css
-        wp_enqueue_style('danzerpress-plugin-css', plugins_url() . '/danzerpress-plugin/dist/plugin.min.css');
+        wp_enqueue_style('danzerpress-plugin-css', $plugin_url . 'dist/plugin.min.css');
 
         //plugin js
-        wp_enqueue_script('danzerpress-plugin-js', plugins_url() . '/danzerpress-plugin/dist/plugin.min.js', array(), null, true);
+        wp_enqueue_script('danzerpress-plugin-js', $plugin_url . '/danzerpress-plugin/dist/plugin.min.js', array(), null, true);
     }
 
     public function timber_locations() 
