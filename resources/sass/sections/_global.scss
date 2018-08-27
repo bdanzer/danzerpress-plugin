@@ -14,6 +14,14 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .danzerpress-title-area {
+        background-attachment: fixed;
+        background-position: 50% 67% !important;
+        background-attachment: scroll !important;
+    }
+}
+
 /*Global Section Styling*/
 .danzerpress-block-text-section .danzerpress-button-wrap,
 .danzerpress-icons-section .danzerpress-button-wrap,
