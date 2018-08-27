@@ -1,0 +1,28 @@
+/*Four image and simple gallery section and portfolio section square force*/
+.four-image-section .danzerpress-image-wrap,
+.simple-gallery-section .danzerpress-image-wrap,
+.portfolio-section .danzerpress-image-wrap {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+.four-image-section img,
+.simple-gallery-section img,
+.portfolio-section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.portfolio-section .danzerpress-image-wrap img:hover {
+    transition: 2s;
+    transform: scale(1.1);
+    opacity: 1;
+}
+.portfolio-section .danzerpress-image-wrap a:hover {
+    opacity: 1;
+}

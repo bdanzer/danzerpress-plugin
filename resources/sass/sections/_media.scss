@@ -1,0 +1,30 @@
+/*Image & Video Section*/
+.danzerpress-image-wrap {
+    box-shadow: 0 0.5625rem 2.8125rem 0 rgba(0, 0, 0, 0.15);
+    line-height: 0px;
+    overflow: hidden;
+    border: 1px solid #201927;
+    position: relative;
+    width: 100%;
+    padding-top: 65%;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+.danzerpress-image-section .danzerpress-section-content p.image-section-p {
+    font-size: 18px;
+}
+.danzerpress-image-section iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}

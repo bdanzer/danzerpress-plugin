@@ -1,0 +1,45 @@
+.danzerpress-icons-section {
+    /*Icon Section*/
+    .icon-wrap {
+        .danzerpress-box {
+            overflow: hidden;
+        }
+        a:hover {
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.10196078431372549);
+            transition: .5s;
+        }
+    }
+    .danzerpress-icon-box {
+        max-width: 60px;
+        margin: 0 0 5px;
+        img {
+            width: 100%;
+        }
+    }
+    .hover-state {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        background: #05C4EB;
+        height: 100%;
+        width: calc(100% - 30px);
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: fontawesome;
+        transition: .5s ease;
+        &:after {
+            content: "\f0c1";
+            font-size: 35px;
+            color: #fff;
+        }
+    }
+    .icon-wrap a:hover > .hover-state {
+        visibility: visible;
+        opacity: 1;
+    }
+}

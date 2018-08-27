@@ -1,0 +1,25 @@
+/**
+* Team Member Section
+*/
+.team-section {
+    .danzerpress-img-wrap, .danzerpress-content {
+        width: 50%;
+        float: left;
+    }
+    .danzerpress-content {
+        margin-left: 50%;
+        padding: 40px;
+    }
+}
+.danzerpress-img-wrap {
+    padding-top: 12%;
+    img {
+        position: absolute;
+        bottom: -55px;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 1px 1px 15px rgba(0,0,0,.18);
+    }
+}

@@ -10,7 +10,7 @@ class PluginAssetLoader {
     {
         global $dp_url;
         $this->plugin_url = $dp_url;
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts'], 102);
         add_action('init', [$this, 'timber_locations']);
     }
 

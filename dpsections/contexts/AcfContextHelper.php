@@ -40,10 +40,7 @@ class AcfContextHelper
 		$html .= 'class="danzerpress-section ' . $classes . '"'; 
 
 		if ($section_background && $background_type == 'image') {
-			$style = 'background:linear-gradient(rgba(0, 0, 0, 0.85), rgba(45, 45, 45, 0.29))';
 			$data = 'data-parallax="scroll" data-image-src="' . $section_background . '"data-ios-fix="true"';
-
-			$html .= 'style="' . $style . '"';
 			$html .= $data;
 		} elseif ($background_color && $background_type == 'color') {
 			$html .= 'style="background:' . $background_color . ';"';

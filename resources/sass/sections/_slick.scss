@@ -1,0 +1,68 @@
+/*Slick*/
+/*Arrow Styling*/
+.slick-prev:before, .slick-next:before {
+    color: black !important;
+}
+.slick-prev {
+    left: -35px !important;
+    top: 33% !important;
+}
+.slick-next {
+    right: -35px !important;
+    top: 33% !important;
+}
+.slick-prev:before,
+.slick-next:before {
+    font-family: fontawesome !important;
+    font-size: 31px !important;
+}
+.slick-prev:before {
+    content: '\f104' !important;
+}
+.slick-next:before {
+    content: '\f105' !important;
+}
+
+/*Li styling*/
+.slick-dots li button:before {
+    display: none;
+}
+.slick-dots li {
+    margin: 0 5px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    background-color: #333 !important;
+    height: 3px !important;
+    width: 49px !important;
+    position: relative !important;
+}
+li.slick-active {
+    background: #06c4ec !important;
+}
+@media screen and (max-width: 767px) {   
+    .slick-dots li {
+        height: 2px !important;
+        width: 32px !important;
+        position: relative !important;
+    }
+}
+
+/*Carousel*/
+.danzerpress-slick-carousel .slider-nav .slick-list.draggable {
+    margin: 0 -15px 0 !important;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 500px) {
+    .home p#danzerpress-button-1 {
+        text-align: center !important;
+    }
+    .danzerpress-icon-box {
+        position: absolute;
+        max-width: 50px !important;
+    }
+    .danzerpress-content-box {
+        margin-left: 63px !important;
+    }
+}
