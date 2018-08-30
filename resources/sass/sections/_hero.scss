@@ -6,15 +6,11 @@
 }
 .danzerpress-section.dp-full-height {
     height: 100vh;
-    background: rgb(0,0,0);
-    background: -moz-linear-gradient(rgba(0,0,0,0.85), rgba(45,45,45,0.29));
-    background: -webkit-linear-gradient(rgba(0,0,0,0.85), rgba(45,45,45,0.29));
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(45,45,45,0.29));
     display: flex;
     flex-direction: column;
 }
 
-#parallax-img {
+.danzerpress-parallax {
     position: absolute;
     top: 0;
     left: 0;

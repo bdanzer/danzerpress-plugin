@@ -25,6 +25,11 @@ class AcfContextHelper
 
 	public function header_builder($background_type, $section_background, $background_color, $iterator, $classes)
 	{
+		if ($section_background && $background_type == 'image') {
+			$end = '<img class="danzerpress-parallax" src=" ' .$section_background. '"/>';
+			$classes[] = 'parallax-section';
+		}
+
 		if ($background_type == 'half-and-half') {
 			$classes[] = 'half-and-half';
 		}
@@ -39,12 +44,15 @@ class AcfContextHelper
 		$html .= 'id="section-' . $iterator . '"';
 		$html .= 'class="danzerpress-section ' . $classes . '"'; 
 
-		if ($section_background && $background_type == 'image') {
-		} elseif ($background_color && $background_type == 'color') {
+		if ($background_color && $background_type == 'color') {
 			$html .= 'style="background:' . $background_color . ';"';
 		} 
 
 		$html .= '>';
+
+		if (isset($end)) {
+			$html .= $end;
+		}
 
 		return $html;
 	}
