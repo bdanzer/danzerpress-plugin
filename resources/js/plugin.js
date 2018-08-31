@@ -17,7 +17,10 @@ if (parallaxImgTitle) {
 } 
 
 function parallax(parallaxImg, sectionParent) {
-    if ((window.pageYOffset < (sectionParent.offsetHeight + sectionParent.offsetTop)) && (window.pageYOffset > sectionParent.offsetTop)) {
-        parallaxImg.style.transform = 'translate3d(0, ' + ((window.pageYOffset - sectionParent.offsetTop) * .2) + 'px, 0)';
+    var parentOffsetBottom = sectionParent.offsetTop + sectionParent.offsetHeight;
+    console.log(window.pageYOffset);
+    console.log(parentOffsetBottom);
+    if (window.pageYOffset > sectionParent.offsetTop && window.pageYOffset > parentOffsetBottom) {
+        parallaxImg.style.transform = 'translate3d(0, ' + ((window.pageYOffset - parentOffsetBottom) * .2) + 'px, 0)';
     }
 }

@@ -1,4 +1,7 @@
-<div class="danzerpress-col-2 danzerpress-fix parallax-window {{ dp.image_side(layout.image_side).order }}{{ (layout.section_icon) ? ' danzerpress-icon-fade' : '' }}" data-parallax="scroll" data-image-src="{{ layout.section_background }}" style="display: flex; flex-direction: column; justify-content: center; min-height: 300px;">	
+<div class="danzerpress-col-2 danzerpress-fix parallax-window {{ dp.image_side(layout.image_side).order }}{{ (layout.section_icon) ? ' danzerpress-icon-fade' : '' }}" style="display: flex; flex-direction: column; justify-content: center; min-height: 300px; position: relative;">	
+	<div class="danzerpress-parallax">
+		<img src="{{layout.section_background}}">
+	</div>
 	{% include 'templates/dp-sections/section-parts/section_icon.twig' %}
 </div>
 
