@@ -5,11 +5,11 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Icon extends Section
+class Code extends Section
 {
 	protected static $context;
-	public static $section_name = 'danzerpress-icons-section';
-	public static $section_slug = 'icons';
+	public static $section_name = 'raw-code-section';
+	public static $section_slug = 'code';
 
 	public static function get_context() 
 	{

@@ -4,6 +4,7 @@
 <div class="danzerpress-container-fw" style="background: transparent;">
 	
 	{% for layout in post.get_field(flexible_layout) %}
+	{{ dump(section) }}
 	    {% if (layout.acf_fc_layout == section[layout.acf_fc_layout].section_slug) %}
 	    	{% set iterator = iterator + 1 %}
 	    	{% include 'templates/dp-sections/section-parts/section-header.twig' %}

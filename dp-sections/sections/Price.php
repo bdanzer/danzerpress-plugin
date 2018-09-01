@@ -5,11 +5,11 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Action extends Section
+class Price extends Section
 {
 	protected static $context;
-	public static $section_name = 'call-to-action-section';
-	public static $section_slug = 'call_to_action';
+	public static $section_name = 'danzerpress-price-section';
+	public static $section_slug = 'price';
 
 	public static function get_context() 
 	{

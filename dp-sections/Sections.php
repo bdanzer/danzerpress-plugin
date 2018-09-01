@@ -22,8 +22,8 @@ class Sections
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
 	   		$this->context['section'] = self::$sections;
-	   		$this->context['flexible_layout'] = $this->flexible_layout;
-	   		
+			$this->context['flexible_layout'] = $this->flexible_layout;
+			
 			$this->render();
 	   	} else {
 			$this->no_layouts();

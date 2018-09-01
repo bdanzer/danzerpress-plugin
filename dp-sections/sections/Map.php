@@ -5,11 +5,11 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Team extends Section
+class Map extends Section
 {
 	protected static $context;
-	public static $section_name = 'team-section';
-	public static $section_slug = 'team_section';
+	public static $section_name = 'danzerpress-map-section';
+	public static $section_slug = 'map';
 
 	public static function get_context() 
 	{
@@ -27,5 +27,14 @@ class Team extends Section
 		);
 
 		Sections::set_sections($section);
+	}
+
+	public static function section_setup() 
+	{	
+		add_action('acf/init', [self::class, 'my_acf_init']);
+	}
+
+	public static function my_acf_init() {
+		acf_update_setting('google_api_key', get_field('google_map_api', 'option'));
 	}
 }

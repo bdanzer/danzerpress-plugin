@@ -15,6 +15,7 @@ class Section
 		$called_class = get_called_class();
 		$called_class::get_context();
 		$called_class::render();
+		$called_class::section_setup();
 	}
 
 	public static function get_context() 
@@ -37,5 +38,10 @@ class Section
 
 		Sections::set_sections($section);
 		*/
+	}
+
+	public static function section_setup() 
+	{
+
 	}
 }

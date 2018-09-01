@@ -5,11 +5,11 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Media extends Section
+class Testimonial extends Section
 {
 	protected static $context;
-	public static $section_name = 'danzerpress-image-section';
-	public static $section_slug = 'image_section';
+	public static $section_name = 'testimonial-section';
+	public static $section_slug = 'testimonial';
 
 	public static function get_context() 
 	{

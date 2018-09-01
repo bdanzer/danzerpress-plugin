@@ -5,11 +5,11 @@ use Danzerpress\Section;
 use Danzerpress\Sections;
 use Timber;
 
-class Text extends Section
+class Team extends Section
 {
 	protected static $context;
-	public static $section_name = 'danzerpress-block-text-section';
-	public static $section_slug = 'block_text_section';
+	public static $section_name = 'team-section';
+	public static $section_slug = 'team';
 
 	public static function get_context() 
 	{
