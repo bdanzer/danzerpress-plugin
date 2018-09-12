@@ -16,7 +16,7 @@ class PluginAssetLoader {
 
     public function enqueue_scripts() 
     {
-        if (IS_DEV) {
+        if (true === IS_DEV) {
             $plugin_url = plugins_url() . '/danzerpress-plugin/';
         } else {
             $plugin_url = plugins_url() . '/dp-plugin/';
