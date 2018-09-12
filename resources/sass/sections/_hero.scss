@@ -54,10 +54,16 @@ div.half-and-half {
 }
 
 @media screen and (max-width: 767px) {
-    .half-and-half .danzerpress-order-0 {
-        display: none !important;
+    .home {
+        .half-and-half .danzerpress-order-0 {
+            display: none !important;
+        }
     }
-    .half-and-half .danzerpress-content {
-        max-width: calc(100% - 60px);
+    .danzerpress-section.half-and-half .danzerpress-col-2 {
+        padding: 50px 0px !important;
+    }
+    div.half-and-half .danzerpress-content {
+        max-width: 90%;
+        padding: 0 15px;
     }
 }
