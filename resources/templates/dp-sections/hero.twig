@@ -1,9 +1,9 @@
 <div class="danzerpress-flex-row">
 	{% if (layout.hero_layout == 1) %}
-		{% include 'templates/dp-sections/section-parts/hero/normal-content.twig' %}
+		{% include 'dp-sections/section-parts/hero/normal-content.twig' %}
 	{% elseif (layout.hero_layout == 2 or layout.hero_layout == 3) %}
-		{% include 'templates/dp-sections/section-parts/hero/w-side-image-content.twig' %}
+		{% include 'dp-sections/section-parts/hero/w-side-image-content.twig' %}
 	{% elseif (layout.background_type == 'half-and-half') %}
-		{% include 'templates/dp-sections/section-parts/hero/half-and-half.twig' %}
+		{% include 'dp-sections/section-parts/hero/half-and-half.twig' %}
 	{% endif %}
 </div>

@@ -2,13 +2,13 @@
 	<div class="danzerpress-parallax">
 		<img src="{{layout.section_background}}">
 	</div>
-	{% include 'templates/dp-sections/section-parts/section_icon.twig' %}
+	{% include 'dp-sections/section-parts/section_icon.twig' %}
 </div>
 
 <div class="danzerpress-col-2 danzerpress-fix {{ dp.is_odd(iterator).color }}" style="display: flex; flex-direction: column; justify-content: center; padding: 140px 0;">
 	<div class="danzerpress-content danzerpress-align-center" style="display: flex; flex-direction: column; justify-content: center; flex: 1 0 auto;">
 		<h2 class="danzerpress-title {{ dp.get_color(layout.background_type) }}" style="margin-bottom: 20px; text-align: left; margin-left: 0px;">{{ layout.section_title }}</h2>
 		<p class="{{ dp.get_color(layout.background_type) }}" style="text-align: left;">{{ layout.section_description }}
-		{% include 'templates/dp-sections/section-parts/content-buttons.twig' %}
+		{% include 'dp-sections/section-parts/content-buttons.twig' %}
 	</div>
 </div>

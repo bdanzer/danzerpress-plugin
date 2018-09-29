@@ -3,7 +3,7 @@
 		<div class="danzerpress-col-2 {{ dp.image_side(layout.image_side).order }}">
 
 			{% if (layout.hero_layout != 3) %}
-				{% include 'templates/dp-sections/section-parts/side-image.twig' %}
+				{% include 'dp-sections/section-parts/side-image.twig' %}
 			{% else %}
 				{{ layout.custom_script }}
 			{% endif %}
@@ -14,7 +14,7 @@
 				<h2 class="danzerpress-title {{ dp.get_color(layout.background_type) }} wow fadeIn" style="text-align: left;">{{ layout.section_title }}</h2>
 				<p class="danzerpress-content {{ dp.get_color(layout.background_type) }} wow fadeIn" style="text-align: left;">{{ layout.section_description }}</p>
 				
-				{% include 'templates/dp-sections/section-parts/content-buttons.twig' %} 
+				{% include 'dp-sections/section-parts/content-buttons.twig' %} 
 			</div>
 		</div>
 	</div>

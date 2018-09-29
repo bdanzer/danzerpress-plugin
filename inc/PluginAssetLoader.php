@@ -11,7 +11,6 @@ class PluginAssetLoader {
         global $dp_url;
         $this->plugin_url = $dp_url;
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts'], 102);
-        add_action('init', [$this, 'timber_locations']);
     }
 
     public function enqueue_scripts() 
@@ -27,13 +26,5 @@ class PluginAssetLoader {
 
         //plugin js
         wp_enqueue_script('danzerpress-plugin-js', $plugin_url . 'dist/plugin.min.js', array(), null, true);
-    }
-
-    public function timber_locations() 
-    {
-        \Timber::$locations = [
-            $this->plugin_url . '/resources', 
-            $this->plugin_url . '/resources/templates'
-        ];
     }
 }

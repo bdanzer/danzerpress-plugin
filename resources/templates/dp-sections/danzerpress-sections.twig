@@ -6,9 +6,9 @@
 	{% for layout in post.get_field(flexible_layout) %}
 	    {% if (layout.acf_fc_layout == section[layout.acf_fc_layout].section_slug) %}
 	    	{% set iterator = iterator + 1 %}
-	    	{% include 'templates/dp-sections/section-parts/section-header.twig' %}
-			{% include ['templates/dp-sections/child-' ~ layout.acf_fc_layout ~ '.twig', 'templates/dp-sections/' ~ layout.acf_fc_layout ~ '.twig']  %}
-			{% include 'templates/dp-sections/section-parts/section-footer.twig' %}
+	    	{% include 'dp-sections/section-parts/section-header.twig' %}
+			{% include 'dp-sections/' ~ layout.acf_fc_layout ~ '.twig' %}
+			{% include 'dp-sections/section-parts/section-footer.twig' %}
 	    {% endif %}
 	{% endfor %}
 	

@@ -1,9 +1,9 @@
 <?php
 namespace Danzerpress;
 
-use Timber;
 use Danzerpress\Contexts\Danzerpress;
 use Danzerpress\Contexts\DanzerpressPostContext;
+use Timber;
 
 class Sections 
 {
@@ -21,7 +21,7 @@ class Sections
 			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
-	   		$this->context['section'] = self::$sections;
+			$this->context['section'] = self::$sections;
 			$this->context['flexible_layout'] = $this->flexible_layout;
 			
 			$this->render();
@@ -53,12 +53,12 @@ class Sections
 
 	public function no_layouts() 
 	{
-		Timber::render('templates/dp-sections/no_template.twig', $this->context);
+		Timber::render('dp-sections/no_template.twig', $this->context);
 	}
 
 	public function loop_layouts() 
 	{
-		Timber::render('templates/dp-sections/danzerpress-sections.twig', $this->context, Danzerpress::get_ttl());
+		Timber::render('dp-sections/danzerpress-sections.twig', $this->context, Danzerpress::get_ttl());
 	}
 
 	public function render() 
