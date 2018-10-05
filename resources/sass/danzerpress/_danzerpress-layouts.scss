@@ -276,7 +276,14 @@ html {
   .danzerpress-no-display {
 	  display: none;
   }
-  
+  .danzerpress-visible {
+	visibility: hidden;
+	opacity: 1;
+  }
+  .danzerpress-not-visible {
+	visibility: visible;
+	opacity: 0;
+  }
   
   
   /*--------------------------------------------------------------
@@ -346,6 +353,9 @@ html {
   }
   .danzerpress-align-content {
 	align-content: center;
+  }
+  .danzerpress-text-align-center {
+	text-align: center;
   }
   
   

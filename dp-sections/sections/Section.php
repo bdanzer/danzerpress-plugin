@@ -18,6 +18,25 @@ class Section
 		$called_class::section_setup();
 	}
 
+	public static function chunk($context) 
+	{
+		if (array_key_exists('layout', $context)) {
+			$context = $context[0];
+		} else {
+			$context = ['layout' => $context[0]];
+		}
+		
+		$class = get_called_class();
+		$file = 'dp-sections/' . $class::$section_slug . '.twig';
+
+		$html = '<div class="danzerpress-section" style="padding: 40px 0;">
+        <div class="danzerpress-wrap">';
+		$html .= Timber::compile($file, $context);
+		$html .= '</div></div>';
+
+		echo $html;
+	}
+
 	public static function get_context() 
 	{
 		/*
