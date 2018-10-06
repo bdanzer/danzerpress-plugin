@@ -18,7 +18,7 @@ class Sections
 		if( have_rows($this->flexible_layout) ) {
 			$this->init_sections();	
 
-			$this->context['post'] = Timber::get_post(get_the_ID(), new DanzerpressPostContext());
+			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
 			$this->context['section'] = self::$sections;

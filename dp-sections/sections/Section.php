@@ -28,17 +28,25 @@ class Section
 		}
 
 		$context['dp'] = new AcfContextHelper;
-
-		$classes = implode(' ', $context['layout']['classes']);
 		
 		$class = get_called_class();
 		$file = 'dp-sections/' . $class::$section_slug . '.twig';
 
-		$html =  Timber::compile('dp-sections/section-parts/section-header.twig', $context);
+		$html =  self::get_section_header($context);
 		$html .= Timber::compile($file, $context);
-		$html .= '</div></div>';
+		$html .= self::get_section_footer();
 
 		echo $html;
+	}
+
+	public static function get_section_header($context) 
+	{
+		return Timber::compile('dp-sections/section-parts/section-header.twig', $context);
+	}
+
+	public static function get_section_footer() 
+	{
+		return '</div></div>';
 	}
 
 	public static function get_context() 
