@@ -38,7 +38,10 @@ class AcfContextHelper
 			$classes[] = 'dp-full-height';
 		}
 
-		$classes = implode(" ", $classes);
+		if ($classes) {
+			$classes = implode(" ", $classes);
+		}
+		
 
 		$html = '<div ';
 		$html .= 'id="section-' . $iterator . '"';

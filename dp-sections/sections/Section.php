@@ -1,6 +1,7 @@
 <?php
 namespace Danzerpress;
 
+use Danzerpress\AcfContextHelper;
 use Danzerpress\Sections;
 use Danzerpress\Contexts\SectionsContext;
 use Timber;
@@ -25,12 +26,15 @@ class Section
 		} else {
 			$context = ['layout' => $context[0]];
 		}
+
+		$context['dp'] = new AcfContextHelper;
+
+		$classes = implode(' ', $context['layout']['classes']);
 		
 		$class = get_called_class();
 		$file = 'dp-sections/' . $class::$section_slug . '.twig';
 
-		$html = '<div class="danzerpress-section" style="padding: 40px 0;">
-        <div class="danzerpress-wrap">';
+		$html =  Timber::compile('dp-sections/section-parts/section-header.twig', $context);
 		$html .= Timber::compile($file, $context);
 		$html .= '</div></div>';
 
