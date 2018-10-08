@@ -1,6 +1,7 @@
 <?php
 namespace Danzerpress;
 
+use Danzerpress\Contexts\Danzerpress;
 use Danzerpress\AcfContextHelper;
 use Danzerpress\Sections;
 use Danzerpress\Contexts\SectionsContext;
@@ -20,12 +21,12 @@ class Section
 
 	public static function get_section_header($context) 
 	{
-		return Timber::compile('dp-sections/section-parts/section-header.twig', $context);
+		return Timber::compile('dp-sections/section-parts/section-header.twig', $context, Danzerpress::get_ttl());
 	}
 
 	public static function get_section_footer() 
 	{
-		return '</div></div>';
+		return Timber::compile('dp-sections/section-parts/section-footer.twig', $context, Danzerpress::get_ttl());
 	}
 
 	public static function chunk($context) 
@@ -48,7 +49,7 @@ class Section
 		$file = 'dp-sections/' . $class::$section_slug . '.twig';
 
 		$html =  self::get_section_header($context);
-		$html .= Timber::compile($file, $context);
+		$html .= Timber::compile($file, $context, Danzerpress::get_ttl());
 		$html .= self::get_section_footer();
 
 		echo $html;

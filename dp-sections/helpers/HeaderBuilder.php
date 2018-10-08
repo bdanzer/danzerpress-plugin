@@ -1,6 +1,7 @@
 <?php
 namespace Danzerpress;
 
+use Danzerpress\Contexts\Danzerpress;
 use Timber;
 
 class HeaderBuilder {
@@ -76,6 +77,6 @@ class HeaderBuilder {
         $context['section_id'] = 'section-' . self::$iterator;
         $context['section_class'] = 'danzerpress-section ' . $this->class_handler($this->classes);
 
-        return Timber::compile('dp-sections/section-parts/section-header2.twig', $context);
+        return Timber::compile('dp-sections/section-parts/section-header2.twig', $context, Danzerpress::get_ttl());
     }
 }
