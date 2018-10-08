@@ -26,7 +26,7 @@ class Section
 
 	public static function get_section_footer() 
 	{
-		return Timber::compile('dp-sections/section-parts/section-footer.twig', $context, Danzerpress::get_ttl());
+		return Timber::compile('dp-sections/section-parts/section-footer.twig', null, Danzerpress::get_ttl());
 	}
 
 	public static function chunk($context) 
