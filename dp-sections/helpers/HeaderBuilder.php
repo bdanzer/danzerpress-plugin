@@ -1,6 +1,8 @@
 <?php
 namespace Danzerpress;
 
+use Timber;
+
 class HeaderBuilder {
     protected static $iterator = 0;
     protected $post_id;
@@ -57,32 +59,23 @@ class HeaderBuilder {
     
     public function build_header()
 	{
+        $context = [];
+
 		if ($this->section_background && $this->background_type == 'image') {
-			$end = '<img class="danzerpress-parallax" src=" ' .$this->section_background. '"/>';
+            $context['image_class'] = 'danzerpress-parallax';
+            $context['image_url'] = $this->section_background;
             $this->classes[] = 'parallax-section';
             $this->classes[] = 'background-type-image';
         }
-
-        $style = 'style="';
         
         if ($this->background_color && $this->background_type == 'color') {
-            $style .= 'background:' . $this->background_color . ';';
+            $context['section_style'] = 'background:' . $this->background_color . ';';
             $this->classes[] = 'background-type-color';
         }
-        
-        $style .= '"';
-        
-		$html = '<div ';
-		$html .= 'id="section-' . self::$iterator . '"';
-		$html .= 'class="danzerpress-section ' . $this->class_handler($this->classes) . '"'; 
-		$html .= $style;
-        $html .= '>';
-        $html .= '<div class="danzerpress-wrap">';
 
-		if (isset($end)) {
-			$html .= $end;
-        }
+        $context['section_id'] = 'section-' . self::$iterator;
+        $context['section_class'] = 'danzerpress-section ' . $this->class_handler($this->classes);
 
-		return $html;
+        return Timber::compile('dp-sections/section-parts/section-header2.twig', $context);
     }
 }
