@@ -7,7 +7,7 @@ use Timber;
 
 class Sections 
 {
-	protected static $sections = [];
+	protected $sections = [];
 	protected $flexible_layout = 'flexible_layout';
 	private $context = [];
 
@@ -21,7 +21,7 @@ class Sections
 			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['iterator'] = 0;
-			$this->context['section'] = self::$sections;
+			$this->context['section'] = $this->sections;
 			$this->context['flexible_layout'] = $this->flexible_layout;
 			
 			$this->render();
@@ -35,20 +35,19 @@ class Sections
 		$dir = __DIR__;
 		$files = glob($dir . '/sections/*.php');
 		foreach ($files as $file) {
+			if ($file === 'Section.php') {
+				continue;
+			}
 			$basename = basename($file);
-			$class_name = 'Danzerpress\\' . str_replace('.php', '', $basename);
-			$class_name::create();
+			$class = 'Danzerpress\\' . str_replace('.php', '', $basename);
+			$class::create();
+
+			$this->sections[$class::$section_slug] = [
+				'section_name' => $class::$section_name,
+				'section_class' => $class::$section_name,
+				'section_slug' => $class::$section_slug,
+			];
 		}
-	}
-
-	public static function get_sections() 
-	{
-		return $this->sections;
-	}
-
-	public static function set_sections($section) 
-	{
-		self::$sections[$section['section_slug']] = $section;
 	}
 
 	public function no_layouts() 

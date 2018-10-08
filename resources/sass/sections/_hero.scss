@@ -9,17 +9,6 @@
     z-index: -1;
 }
 
-.danzerpress-hero-section {
-    .danzerpress-two-thirds {
-        max-width: 650px;
-    }
-}
-.danzerpress-section.dp-full-height {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .danzerpress-parallax {
     position: absolute;
     top: 0;
@@ -31,35 +20,55 @@
     object-fit: cover;
 }
 
-/*half and half section*/
-div.half-and-half {
-    background: transparent;
-    padding: 0px;
-    .danzerpress-title {
-        margin-top: 0px;
-    }
-    .danzerpress-wrap, .danzerpress-flex-row {
-        height: 100%;
-    }
-    .danzerpress-wrap {
-        max-width: 100%;
-        width: 100%;
-    }
-    .parallax-window {
-        position: relative;
-        &.danzerpress-icon-fade {
-            background: rgba(255, 255, 255, 0.47843137254901963);
-        }
-        .danzerpress-icon-img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+.danzerpress-section {
+    &.danzerpress-hero-section {
+        .danzerpress-two-thirds {
+            max-width: 650px;
         }
     }
-    .danzerpress-content {
-        max-width: 70%;
-        margin: auto;
+
+    &.background-type-color, &.background-type-image {
+        h2, p, .danzerpress-button-modern-transparent {
+            color: white;
+        }
+    }
+
+    &.dp-full-height {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*half and half section*/
+    &.half-and-half {
+        background: transparent;
+        padding: 0px;
+        .danzerpress-title {
+            margin-top: 0px;
+        }
+        .danzerpress-wrap, .danzerpress-flex-row {
+            height: 100%;
+        }
+        .danzerpress-wrap {
+            max-width: 100%;
+            width: 100%;
+        }
+        .parallax-window {
+            position: relative;
+            &.danzerpress-icon-fade {
+                background: rgba(255, 255, 255, 0.47843137254901963);
+            }
+            .danzerpress-icon-img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .danzerpress-content {
+            max-width: 70%;
+            margin: auto;
+        }
     }
 }
 

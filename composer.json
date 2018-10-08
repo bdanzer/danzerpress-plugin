@@ -17,6 +17,7 @@
                 "dp-sections", 
                 "dp-sections/contexts", 
                 "dp-sections/sections", 
+                "dp-sections/helpers", 
                 "inc"
             ],
             "Danzerpress\\filters\\" : [

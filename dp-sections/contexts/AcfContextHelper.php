@@ -1,6 +1,8 @@
 <?php
 namespace Danzerpress;
 
+use Danzerpress\HeaderBuilder;
+
 class AcfContextHelper
 {	
 	public function __construct() 
@@ -8,75 +10,10 @@ class AcfContextHelper
 
 	}
 
-	public function is_odd($iterator) 
+	public function header_builder($layout)
 	{
-		if ($iterator % 2 == 0) {
-			return [
-				'section_type' => 'danzerpress-odd',
-				'color' => 'danzerpress-grey'
-			];
-		} else {
-			return [
-				'section_type' => 'danzerpress-even',
-				'color' => 'danzerpress-white',
-			];
-		}
-	}
-
-	public function header_builder($background_type, $section_background, $background_color, $iterator, $classes)
-	{
-		if ($section_background && $background_type == 'image') {
-			$end = '<img class="danzerpress-parallax" src=" ' .$section_background. '"/>';
-			$classes[] = 'parallax-section';
-		}
-
-		if ($background_type == 'half-and-half') {
-			$classes[] = 'half-and-half';
-		}
-
-		if ($iterator == 1 && get_field('full_screen_section_1', 'option') && is_front_page()) {
-			$classes[] = 'dp-full-height';
-		}
-
-		if ($classes) {
-			$classes = implode(" ", $classes);
-		}
-		
-
-		$html = '<div ';
-		$html .= 'id="section-' . $iterator . '"';
-		$html .= 'class="danzerpress-section ' . $classes . '"'; 
-
-		if ($background_color && $background_type == 'color') {
-			$html .= 'style="background:' . $background_color . ';"';
-		} 
-
-		$html .= '>';
-
-		if (isset($end)) {
-			$html .= $end;
-		}
-
-		return $html;
-	}
-
-	public function custom_css($css)
-	{
-		if ($css) {
-			return $css;
-		}
-
-		return '';
-	}
-
-	public function get_color($type)
-	{
-		if ($type != 'image' && $type != 'color') {
-			return 'danzerpress-color-grey';
-		} else {
-			return 'danzerpress-color-white';
-		}
-		
+		$header_builder = new HeaderBuilder($layout);
+		return $header_builder->build_header();
 	}
 
 	public function get_background($iterator)

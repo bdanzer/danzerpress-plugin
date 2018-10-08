@@ -134,6 +134,7 @@ html {
   }
   .danzerpress-button-modern, 
   .form-row input.woocommerce-Button.button, 
+  .submit,
   input[type="button"], 
   input[type="reset"], 
   input[type="submit"] {
@@ -251,17 +252,17 @@ html {
 	  background: white;
   }
   .danzerpress-grey {
-	  background: #f5f5f5;
+	  background: $light-grey;
   }
   .danzerpress-odd {
-	  background: #f5f5f5;
+	  background: $light-grey;
 		.danzerpress-background {
 			background: white;
 		} 
   }
   .danzerpress-even {
 		.danzerpress-background {
-			background: #f5f5f5;
+			background: $light-grey;
 		}
   }
   

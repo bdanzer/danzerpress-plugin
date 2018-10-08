@@ -1,9 +1,12 @@
 <?php
 /*
 Plugin Name: Danzerpress
+Version: 1.0
 */
+if (defined("DP_PLUGIN_URL")) {
+    define("DP_PLUGIN_URL", plugin_dir_url( __FILE__ ));    
+}
 
-$dp_url = plugin_dir_path( __FILE__ );
 $autoload_path = __DIR__ . '/vendor/autoload.php';
 
 if ( file_exists( $autoload_path ) ) {
@@ -12,3 +15,4 @@ if ( file_exists( $autoload_path ) ) {
 
 new Danzerpress\filters\DanzerpressFilters;
 new Danzerpress\PluginAssetLoader;
+new Danzerpress\DanzerpressPlugin;
