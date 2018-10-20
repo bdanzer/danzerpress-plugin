@@ -7,7 +7,6 @@ class PluginAssetLoader {
 
     public function __construct() 
     {
-        global $dp_url;
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts'], 102);
     }
 

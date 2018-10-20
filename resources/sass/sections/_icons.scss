@@ -9,6 +9,15 @@
             transition: .5s;
         }
     }
+    .icons-default {
+        display: flex;
+        flex-direction: column;
+        a {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+        }
+    }
     .danzerpress-icon-box {
         max-width: 60px;
         margin: 0 0 5px;

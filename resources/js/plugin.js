@@ -6,7 +6,6 @@ var parallaxImgSection = document.querySelectorAll('.danzerpress-section .danzer
 
 parallaxImgSection.forEach(parallaxImg => {
     document.addEventListener("scroll", () => {
-        console.log(parallaxImg.closest('.danzerpress-section'));
         parallax(parallaxImg, parallaxImg.closest('.danzerpress-section'));
     });
 });
@@ -20,7 +19,7 @@ if (parallaxImgTitle) {
 function parallax(parallaxImg, sectionParent) {
     var sectionParentTop = getElementOffset(sectionParent),
         parentOffsetBottom = sectionParentTop + sectionParent.offsetHeight;
-        console.log(sectionParentTop);
+
     if (window.pageYOffset > sectionParentTop && window.pageYOffset < parentOffsetBottom) {
         parallaxImg.style.transform = 'translate3d(0, ' + ((window.pageYOffset - sectionParentTop) * .2) + 'px, 0)';
     }
