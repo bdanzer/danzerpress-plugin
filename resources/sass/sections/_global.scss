@@ -55,6 +55,15 @@
     text-align: center;
 }
 
+/*Images*/
+.danzerpress-image-background {
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
 /*new global?*/
 .danzerpress-section {
     .danzerpress-left {

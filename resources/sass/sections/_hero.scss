@@ -55,6 +55,7 @@
         }
         .parallax-window {
             position: relative;
+            overflow: hidden;
             &.danzerpress-icon-fade {
                 background: rgba(255, 255, 255, 0.47843137254901963);
             }
