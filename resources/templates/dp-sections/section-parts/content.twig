@@ -1,0 +1,7 @@
+{% if layout.section_title %}
+    {{dp.get_h_tag(layout.section_title)}}
+{% endif %}
+
+{% if layout.section_description %}
+    <p class="danzerpress-section-description wow fadeIn {{ extra_button_classes }}">{{ layout.section_description }}</p>
+{% endif %}

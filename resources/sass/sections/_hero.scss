@@ -22,8 +22,18 @@
 
 .danzerpress-section {
     &.danzerpress-hero-section {
+        .danzerpress-hero-normal {
+            .danzerpress-section-description {
+                font-size: 20px;
+            }
+        }
         .danzerpress-two-thirds {
             max-width: 650px;
+        }
+        .hero-side-image {
+            .danzerpress-title, .danzerpress-section-description {
+                text-align: left;
+            }
         }
     }
 
@@ -45,6 +55,18 @@
         padding: 0px;
         .danzerpress-title {
             margin-top: 0px;
+            margin-bottom: 20px; 
+            text-align: left; 
+            margin-left: 0px;
+        }
+        .danzerpress-half-content {
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 140px 0
+        }
+        .danzerpress-section-description {
+            text-align: left;
         }
         .danzerpress-wrap, .danzerpress-flex-row {
             height: 100%;
@@ -53,7 +75,11 @@
             max-width: 100%;
             width: 100%;
         }
-        .parallax-window {
+        .image-window {
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            min-height: 300px;
             position: relative;
             overflow: hidden;
             &.danzerpress-icon-fade {
@@ -69,6 +95,10 @@
         .danzerpress-content {
             max-width: 70%;
             margin: auto;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            flex: 1 0 auto;
         }
     }
 }

@@ -1,21 +1,18 @@
-<div class="danzerpress-two-thirds danzerpress-col-center">
-	<h2 class="danzerpress-title" style="">{{ layout.section_title }}</h2>
-	<p style="text-align: center; font-size: 18px;margin-bottom: 40px;">{{ layout.section_description }}</p>
-
-		{% if (layout.section_gallery) %}
-		    <div class="danzerpress-flex-row danzerpress-row-fix">
-		    	{% for image in layout.section_gallery %}
-		        	<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzepress-xs-2 wow slideInUp">
-						<div class="danzerpress-image-wrap">
-							<a data-fancybox="'simple-gallery-section-'{{ iterator }}" href="{{ TimberImage(image.id).src }}">
-								<img alt="Image for {{ post.title }}" src="{{TimberImage(image.id).src|resize(480)}}">
-							</a>
-						</div>
-						<!-- <h4 style="text-align: center; margin-top: 10px;"><?php echo $image['title'] ?></h4> -->
+<div class="danzerpress-two-thirds danzerpress-col-center simple-gallery">
+	{% include 'dp-sections/section-parts/content.twig' %}
+	{% if (layout.section_gallery) %}
+		<div class="danzerpress-flex-row danzerpress-row-fix">
+			{% for image in layout.section_gallery %}
+				<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzepress-xs-2 wow slideInUp">
+					<div class="danzerpress-image-wrap">
+						<a data-fancybox="'simple-gallery-section-'{{ iterator }}" href="{{ TimberImage(image.id).src }}">
+							<img alt="Image for {{ post.title }}" src="{{TimberImage(image.id).src|resize(480)}}">
+						</a>
 					</div>
-		        {% endfor %}
-		    </div>
-		{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
 
 	{% include 'dp-sections/section-parts/content-buttons.twig' %}
 </div>

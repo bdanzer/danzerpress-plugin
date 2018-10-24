@@ -16,8 +16,38 @@
         width: 100%;
     }
 }
-.danzerpress-image-section .danzerpress-section-content p.image-section-p {
-    font-size: 18px;
+.danzerpress-image-section {
+    .four-images {
+        .danzerpress-section-description {
+            text-align: center; 
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+    }
+    .portfolio {
+        .danzerpress-title {
+            margin-bottom: 40px;
+        }
+    }
+    .simple-gallery {
+        .danzerpress-section-description {
+            text-align: center; 
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+    }
+    .danzerpress-title {
+        margin: 0px;
+        text-align: left;
+    }
+    .danzerpress-section-description {
+        font-size: 18px;
+    }
+    .long-image-content {
+        .danzerpress-section-description {
+            margin-bottom: 20px;
+        }
+    }
 }
 .danzerpress-image-section iframe {
     position: absolute;

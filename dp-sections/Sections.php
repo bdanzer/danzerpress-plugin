@@ -20,7 +20,6 @@ class Sections
 
 			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
 			$this->context['dp'] = new AcfContextHelper;
-			$this->context['iterator'] = 0;
 			$this->context['section'] = $this->sections;
 			$this->context['flexible_layout'] = $this->flexible_layout;
 			

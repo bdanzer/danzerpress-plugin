@@ -10,6 +10,15 @@ class AcfContextHelper
 
 	}
 
+	public function get_h_tag($content) 
+	{
+		if (HeaderBuilder::get_iterator() === 1 && get_field('title_screen_header')) {
+			return '<h1 class="danzerpress-title">' . $content . '</h1>';
+		}
+
+		return '<h2 class="danzerpress-title">' . $content . '</h2>';
+	}
+
 	public function header_builder($layout)
 	{
 		$header_builder = new HeaderBuilder($layout);

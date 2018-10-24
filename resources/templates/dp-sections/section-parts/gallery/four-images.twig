@@ -1,4 +1,4 @@
-<div class="danzerpress-four-fifths danzerpress-col-center">
+<div class="danzerpress-four-fifths danzerpress-col-center four-images">
 	<div class="danzerpress-flex-row danzerpess-row-fix">
 
 		<div class="danzerpress-col-2 {{ dp.image_side(layout.image_side).order }}">
@@ -15,8 +15,7 @@
 			{% endif %}
 		</div>
 		<div class="danzerpress-col-2 danzerpress-flex-column danzerpress-justify-center">
-			<h2 class="danzerpress-title" style="">{{ layout.section_title }}</h2>
-			<p style="text-align: center; font-size: 18px;margin-bottom: 40px;">{{ layout.section_description }}</p>
+			{% include 'dp-sections/section-parts/content.twig' %}
 			{% include 'dp-sections/section-parts/content-buttons.twig' %}
 		</div>
 		

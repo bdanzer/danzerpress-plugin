@@ -1,5 +1,5 @@
-<div class="danzerpress-two-thirds danzerpress-col-center">
-	<h2 class="danzerpress-title" style="margin-bottom: 40px;">{{ layout.section_title }}</h2>
+<div class="danzerpress-two-thirds danzerpress-col-center portfolio">
+	{% include 'dp-sections/section-parts/content.twig' %}
 	{% if (layout.portfolio_repeater) %}
 		<div class="danzerpress-flex-row danzerpress-row-fix">
 			{% for portfolio in layout.portfolio_repeater %}

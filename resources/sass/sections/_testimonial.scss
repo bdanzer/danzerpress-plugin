@@ -1,17 +1,25 @@
 /*Testimonial Section*/
-.testimonial-section i.fa.fa-star {
-    margin-right: 8px;
-}
-.testimonial-section p.stars {
-    margin-bottom: 5px;
-}
-.testimonial-section img {
-    height: 80px;
-    width: 80px;
-    border-radius: 100%;
-    object-fit: cover;
-}
-.testimonial-col {
-    display: flex;
-    flex-direction: column;
+.testimonial-section {
+    .danzerpress-title {
+        margin-bottom: 40px;
+    }
+    .danzerpress-description {
+        text-align: center;
+    }
+    i.fa.fa-star {
+        margin-right: 8px;
+    }
+    p.stars {
+        margin-bottom: 5px;
+    }
+    img {
+        height: 80px;
+        width: 80px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+    .testimonial-col {
+        display: flex;
+        flex-direction: column;
+    }
 }

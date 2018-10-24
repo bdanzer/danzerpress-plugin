@@ -25,6 +25,10 @@ class HeaderBuilder {
         $this->classes[] = (isset($layout['sections']['section_class'])) ? $layout['sections']['section_class'] : null;
     }
 
+    public static function get_iterator() {
+        return self::$iterator;
+    }
+
     public function is_odd($iterator) 
 	{
         return ($iterator % 2 == 0) ? 'danzerpress-odd' : 'danzerpress-even';

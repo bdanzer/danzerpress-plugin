@@ -1,12 +1,11 @@
-<div class="danzerpress-col-2 danzerpress-fix parallax-window {{ dp.image_side(layout.image_side).order }}{{ (layout.section_icon) ? ' danzerpress-icon-fade' : '' }}" style="display: flex; flex-direction: column; justify-content: center; min-height: 300px; position: relative;">	
+<div class="danzerpress-col-2 danzerpress-fix image-window {{ dp.image_side(layout.image_side).order }}{{ (layout.section_icon) ? ' danzerpress-icon-fade' : '' }}">	
 	{% include 'dp-sections/section-parts/image_background.twig' %}
 	{% include 'dp-sections/section-parts/section_icon.twig' %}
 </div>
 
-<div class="danzerpress-col-2 danzerpress-fix danzerpress-half-content" style="display: flex; flex-direction: column; justify-content: center; padding: 140px 0;">
-	<div class="danzerpress-content danzerpress-align-center" style="display: flex; flex-direction: column; justify-content: center; flex: 1 0 auto;">
-		<h2 class="danzerpress-title" style="margin-bottom: 20px; text-align: left; margin-left: 0px;">{{ layout.section_title }}</h2>
-		<p style="text-align: left;">{{ layout.section_description }}
+<div class="danzerpress-col-2 danzerpress-fix danzerpress-half-content">
+	<div class="danzerpress-content danzerpress-align-center">
+		{% include 'dp-sections/section-parts/content.twig' %}
 		{% include 'dp-sections/section-parts/content-buttons.twig' %}
 	</div>
 </div>
