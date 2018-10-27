@@ -17,35 +17,21 @@
     }
 }
 .danzerpress-image-section {
-    .four-images {
-        .danzerpress-section-description {
-            text-align: center; 
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-    }
-    .portfolio {
-        .danzerpress-title {
-            margin-bottom: 40px;
-        }
-    }
-    .simple-gallery {
-        .danzerpress-section-description {
-            text-align: center; 
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-    }
     .danzerpress-title {
         margin: 0px;
-        text-align: left;
     }
     .danzerpress-section-description {
         font-size: 18px;
     }
+    .danzerpress-button-wrap, .danzerpress-section-description, .danzerpress-title {
+        text-align: center;
+    }
     .long-image-content {
         .danzerpress-section-description {
             margin-bottom: 20px;
+        }
+        .danzerpress-button-wrap, .danzerpress-section-description, .danzerpress-title {
+            text-align: left;
         }
     }
 }
