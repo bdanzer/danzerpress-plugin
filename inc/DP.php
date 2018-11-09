@@ -3,6 +3,7 @@ namespace Danzerpress;
 
 use Danzerpress\filters\DanzerpressFilters;
 use Danzerpress\filters\TwigFunctions;
+use Danzerpress\acf\AcfLayouts;
 
 class DP {
     public function __construct() 
@@ -17,6 +18,7 @@ class DP {
         new DanzerpressFilters;
         new TwigFunctions;
         new PluginAssetLoader;
+        new AcfLayouts;
     }
 
     public function set_constants() {}   
