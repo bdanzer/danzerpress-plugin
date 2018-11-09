@@ -17,24 +17,28 @@ if (parallaxImgTitle) {
 } 
 
 function parallax(parallaxImg, sectionParent) {
-    var sectionParentTop = getElementOffset(sectionParent),
+    window.requestAnimationFrame(() => {
+        var sectionParentTop = getElementOffset(sectionParent),
         parentOffsetBottom = sectionParentTop + sectionParent.offsetHeight;
 
-    if (window.pageYOffset > sectionParentTop && window.pageYOffset < parentOffsetBottom) {
-        parallaxImg.style.transform = 'translate3d(0, ' + ((window.pageYOffset - sectionParentTop) * .2) + 'px, 0)';
-    }
+        if (window.pageYOffset > sectionParentTop && window.pageYOffset < parentOffsetBottom) {
+            parallaxImg.style.transform = 'translate3d(0, ' + ((window.pageYOffset - sectionParentTop) * .2) + 'px, 0)';
+        } else {
+            parallaxImg.style.transform = 'translate3d(0, 0px, 0)';
+        }
+    });
 }
 
 function getElementOffset(el) {
     let top = 0;
     let element = el;
-  
+
     // Loop through the DOM tree
     // and add it's parent's offset to get page offset
     do {
-      top += element.offsetTop || 0;
-      element = element.offsetParent;
+        top += element.offsetTop || 0;
+        element = element.offsetParent;
     } while (element);
-  
+
     return top;
-  }
+}

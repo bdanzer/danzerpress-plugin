@@ -34,12 +34,14 @@ class Sections
 		$dir = __DIR__;
 		$files = glob($dir . '/sections/*.php');
 		foreach ($files as $file) {
-			if ($file === 'Section.php') {
+			$basename = basename($file, '.php');
+
+			if ($basename === 'Section') {
 				continue;
 			}
-			$basename = basename($file);
-			$class = 'Danzerpress\\' . str_replace('.php', '', $basename);
-			$class::create();
+
+			$class = 'Danzerpress\\' . $basename;
+			$class::init();
 
 			$this->sections[$class::$section_slug] = [
 				'section_name' => $class::$section_name,

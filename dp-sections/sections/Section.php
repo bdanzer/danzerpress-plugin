@@ -13,7 +13,7 @@ class Section
 	public static $section_name = '';
 	public static $section_slug = '';
 
-	public static function create() 
+	public static function init() 
 	{
 		$called_class = get_called_class();
 		$called_class::section_setup();

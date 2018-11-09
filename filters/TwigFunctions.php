@@ -21,8 +21,8 @@ class TwigFunctions extends MethodExtractor {
         });
     }
     
-    public function dpImage($image_id, $classes = null) {
-        $image = new Image($image_id, $classes);
+    public function dpImage($image_id, $classes = null, $attr = null) {
+        $image = new Image($image_id, $classes, $attr);
         return $image->build_image();
     }
 }

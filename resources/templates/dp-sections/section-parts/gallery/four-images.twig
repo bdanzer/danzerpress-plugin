@@ -7,7 +7,7 @@
 				 	{% for image in layout.image_repeater %}
 						<div class="danzerpress-col-2 danzerpress-md-2 danzerprss-sm-2 danzerpress-xs-2 wow zoomIn">
 							<div class="danzerpress-image-wrap">
-							<a data-fancybox="four-image-section" href="{{image.image}}"><img src="{{image.image|resize(480)}}"></a>
+							<a data-fancybox="four-image-section" href="{{image.image}}">{{dpImage(image.image)}}</a>
 							</div>
 						</div>
 					{% endfor %}
