@@ -1,5 +1,5 @@
 <div id="{{section_id}}" class="{{section_class}}" style="{{section_style}}">
     <div class="danzerpress-wrap">
         {% if image_url %}
-        <img class="{{image_class}}" src="{{image_url}}"/>
+            {{dpImage(image_url, image_class)}}
         {% endif %}

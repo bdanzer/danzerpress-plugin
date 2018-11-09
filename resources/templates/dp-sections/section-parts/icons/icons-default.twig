@@ -5,7 +5,7 @@
                 <div class="danzerpress-box danzerpress-background">
                     {% if (sub.image) %}
                         <div class="danzerpress-icon-box wow zoomIn">
-                            <img alt="Image for {{ post.title }}" src="{{ sub.image }}">
+                            {{dpImage(sub.image)}}
                         </div>
                     {% endif %}
                     <div class="danzerpress-content-box wow fadeInUp">
