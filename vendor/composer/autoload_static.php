@@ -10,6 +10,7 @@ class ComposerStaticInit0768c93f60e48f8fb46a73587d211708
         'D' => 
         array (
             'Danzerpress\\filters\\' => 20,
+            'Danzerpress\\chunks\\DP\\' => 22,
             'Danzerpress\\' => 12,
         ),
     );
@@ -18,6 +19,10 @@ class ComposerStaticInit0768c93f60e48f8fb46a73587d211708
         'Danzerpress\\filters\\' => 
         array (
             0 => __DIR__ . '/../..' . '/filters',
+        ),
+        'Danzerpress\\chunks\\DP\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/inc/chunks',
         ),
         'Danzerpress\\' => 
         array (

@@ -4,6 +4,7 @@ namespace Danzerpress;
 use Danzerpress\filters\DanzerpressFilters;
 use Danzerpress\filters\TwigFunctions;
 use Danzerpress\acf\AcfLayouts;
+use Danzerpress\Hooks\Hooks;
 
 class DP {
     public function __construct() 
@@ -14,7 +15,8 @@ class DP {
         }
         $this->set_constants();
         add_action('acf/init', [$this, 'my_acf_init']);
-        
+
+        new Hooks;
         new DanzerpressFilters;
         new TwigFunctions;
         new PluginAssetLoader;

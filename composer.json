@@ -22,6 +22,9 @@
             ],
             "Danzerpress\\filters\\" : [
                 "filters"
+            ],
+            "Danzerpress\\chunks\\DP\\": [
+                "inc/chunks"
             ]
         }
     }

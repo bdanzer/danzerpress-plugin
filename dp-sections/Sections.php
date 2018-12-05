@@ -10,9 +10,11 @@ class Sections
 	protected $sections = [];
 	protected $flexible_layout = 'flexible_layout';
 	private $context = [];
+	protected static $is_section = false;
 
 	public function __construct() 
 	{
+		self::$is_section = true;
 		$this->context = Danzerpress::get_context();
 		
 		if( have_rows($this->flexible_layout) ) {
@@ -27,6 +29,11 @@ class Sections
 	   	} else {
 			$this->no_layouts();
 		}
+	}
+
+	public static function is_section() 
+	{
+		return self::$is_section;
 	}
 
 	public function init_sections() 
