@@ -4,7 +4,7 @@ namespace Danzerpress;
 use Danzerpress\filters\DanzerpressFilters;
 use Danzerpress\filters\TwigFunctions;
 use Danzerpress\acf\AcfLayouts;
-use Danzerpress\Hooks\Hooks;
+use Danzerpress\hooks\Hooks;
 
 class DP {
     public function __construct() 
