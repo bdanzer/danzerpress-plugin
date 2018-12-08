@@ -1,6 +1,7 @@
 <?php
 /*
 Plugin Name: Danzerpress
+Description: Adds Danzerpress Sections to theme and other WordPress integrations
 Version: 1.0
 */
 
@@ -25,11 +26,9 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 );
 //Optional: If you're using a private repository, specify the access token like this:
 //$myUpdateChecker->setAuthentication('your-token-here');
-
-//Optional: Set the branch that contains the stable release.
-//$myUpdateChecker->setBranch('master');
-
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
+//Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
 
 add_action('init', function() {
     new Danzerpress\DP;

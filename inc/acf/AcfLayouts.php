@@ -217,7 +217,7 @@ class AcfLayouts {
 
         $dir = dp::get_dir() . "/dp-json/danzerpress-sections.json";
         
-        if (is_file($dir) && !IS_DEV) {
+        if (is_file($dir) && !defined('IS_DEV')) {
             return $this->dp_include_json_folder($dir);
         }
 
@@ -242,7 +242,7 @@ class AcfLayouts {
         //dpDie($field['layouts']['59fa84633e52e']['sub_fields']);
         //dpDie($field);
 
-        if (IS_DEV) {
+        if (!defined('IS_DEV')) {
             $this->dp_acf_write_json_field_group($field, 'danzerpress-sections');
         }
 

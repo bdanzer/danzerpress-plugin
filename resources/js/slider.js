@@ -7,6 +7,10 @@ class Slider {
         this.slider = document.querySelector('.danzerpress-slider');
         this.createPagination();
         this.handleSlider();
+
+        if (!this.slider) {
+            return;
+        }   
     }
 
     createPagination()
@@ -18,8 +22,6 @@ class Slider {
             </div>
         `;
 
-        console.log(this.slider.children.length);
-        console.log(this.sliderNumber);
         let doc = new DOMParser().parseFromString(sliderPagination, 'text/html').body.firstChild;
         for (let i = 0; i < this.slider.children.length; i++) {
 

@@ -27,7 +27,7 @@ class DP {
 
     public function sample_admin_notice__error() {
         $class = 'notice notice-error';
-        $message = __( 'DanzerPress Theme is required for this plugin to work. Functionality will be disabled until theme is activated.', 'sample-text-domain' );
+        $message = __( 'DanzerPress Theme is required for DanzerPress plugin to work. Functionality will be disabled until theme is activated.', 'sample-text-domain' );
         
         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
     }
