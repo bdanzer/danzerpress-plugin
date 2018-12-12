@@ -2,7 +2,7 @@
 /*
 Plugin Name: Danzerpress
 Description: Adds Danzerpress Sections to theme and other WordPress integrations
-Version: 1.0
+Version: 1.1
 */
 
 if (!defined("DP_PLUGIN_URL")) {

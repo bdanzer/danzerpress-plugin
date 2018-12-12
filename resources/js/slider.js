@@ -5,12 +5,12 @@ class Slider {
         this.sliderNumber = 3;
         this.sliderWrap = document.querySelector('.danzerpress-slider-wrap');
         this.slider = document.querySelector('.danzerpress-slider');
-        this.createPagination();
-        this.handleSlider();
 
         if (!this.slider) {
             return;
-        }   
+        }
+        this.createPagination();
+        this.handleSlider();   
     }
 
     createPagination()
