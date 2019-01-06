@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Danzerpress
+Plugin Name: Danzerpress Plugin
 Description: Adds Danzerpress Sections to theme and other WordPress integrations
-Version: 1.2
+Version: 1.3
 */
 
 if (!defined("DP_PLUGIN_URL")) {
@@ -31,5 +31,13 @@ $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 $myUpdateChecker->setBranch('master');
 
 add_action('init', function() {
+    if (!class_exists('Danzerpress\\DP_Theme') && !is_admin()) {
+        return;
+    }
+
+    if (!function_exists('get_field')) {
+        return;
+    }
+    
     new Danzerpress\DP;
 });
