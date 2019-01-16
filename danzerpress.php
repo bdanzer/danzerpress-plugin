@@ -41,4 +41,9 @@ add_action('init', function() {
     }
     
     new Danzerpress\DP;
+    
+});
+
+add_action('init', function() {
+    new Danzerpress\Sections(true);
 });

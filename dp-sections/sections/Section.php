@@ -12,11 +12,35 @@ class Section
 	protected static $context;
 	public static $section_name = '';
 	public static $section_slug = '';
+	public $block_namespace;
+	protected $css;
+	protected $attributes = [];
 
-	public static function init() 
+	public function __construct() 
+	{
+		$this->section_setup();
+	}
+
+	/**
+	 * This is what boots the section
+	 */
+	public function section_setup() {}
+
+	public function get_css() 
+	{
+		return $this->css;
+	} 
+
+	public function get_block_namespace() 
 	{
 		$called_class = get_called_class();
-		$called_class::section_setup();
+		$section_slug = $called_class::$section_slug;
+		return $this->block_namespace = "dp/{$section_slug}-section";
+	}
+
+	public function get_attributes() 
+	{
+		return $this->attributes;
 	}
 
 	public static function get_section_header($context) 
@@ -31,29 +55,40 @@ class Section
 
 	public static function chunk($context) 
 	{
-		$class = get_called_class();
-
 		if (array_key_exists('layout', $context)) {
 			$context = $context[0];
 		} else {
 			$context = ['layout' => $context[0]];
 		}
 
-		$context['dp'] = new AcfContextHelper;
-		$context['layout']['sections'] = [
-			'section_name' => $class::$section_name,
-			'section_class' => $class::$section_name . ' ' . $context['layout']['classes'],
-			'section_slug' => $class::$section_slug
-		];
+		self::get_compiled_section($context);
 
-		$file = 'dp-sections/' . $class::$section_slug . '.twig';
+		echo $html;
+	}
+
+	public static function get_compiled_section($layout) 
+	{
+		$called_class = get_called_class();
+
+		$context = [];
+
+		$context['dp'] = new AcfContextHelper;
+		$context['layout'] = $layout;
+
+		if (!isset($layout['sections'])) {
+			$context['layout']['sections'] = [
+				'section_name' => $called_class::$section_name,
+				'section_class' => $called_class::$section_name,
+				'section_slug' => $called_class::$section_slug
+			];
+		}
+
+		$file = 'dp-sections/' . $called_class::$section_slug . '.twig';
 
 		$html =  self::get_section_header($context);
 		$html .= Timber::compile($file, $context, Danzerpress::get_ttl());
 		$html .= self::get_section_footer();
 
-		echo $html;
+		return $html;
 	}
-
-	public static function section_setup() {}
 }
