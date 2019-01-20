@@ -57,10 +57,7 @@ class HeaderBuilder {
         return $classes;
     }
 
-    public function style_handler($styles) 
-    {
-
-    }
+    public function style_handler($styles) {}
     
     public function build_header()
 	{
@@ -74,7 +71,7 @@ class HeaderBuilder {
         }
         
         if ($this->background_color && $this->background_type == 'color') {
-            $context['section_style'] = 'background:' . $this->background_color . ';';
+            //$context['section_style'] = 'background:' . $this->background_color . ';';
             $this->classes[] = 'background-type-color';
         }
 

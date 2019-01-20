@@ -8,7 +8,7 @@ class CssBuilder
     protected $section_number;
     protected $css_array;
 
-    public function __construct($parent_selector, array $css) 
+    public function __construct($section, array $css) 
     {
         $this->css_array = $css;
         add_action('wp_head', [$this, 'render_css']);
@@ -32,6 +32,9 @@ class CssBuilder
         $string = '';
         $this->section_number = 0;
         foreach ($blocks as $block) {
+            if (false === strpos($block['blockName'], 'dp'))
+                continue;
+                
             $this->section_number++;
             $section_number = "#section-{$this->section_number} ";
 
