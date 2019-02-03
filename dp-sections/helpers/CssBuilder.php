@@ -48,6 +48,8 @@ class CssBuilder
             }
         }
 
+        $string = apply_filters('css_builder_pre_render_string', $string, $blocks);
+
         echo '<style>' . $string . '</style>';
     }
 }

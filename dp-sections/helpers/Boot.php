@@ -17,10 +17,10 @@ class Boot
 		foreach ($files as $file) {
 			$basename = basename($file, '.php');
 
-			if ($basename === 'Section')
-				continue;
+			if ($basename === 'Section' && !class_exists($basename))
+                continue;
 
-			$class = 'Danzerpress\\' . $basename;
+			$class = apply_filters('pre_boot_section', 'Danzerpress\\' . $basename, $basename);
 			$class = new $class();
 
 			new RegisterBlock($class->get_block_namespace(), $class->get_attributes(), [$class, 'block_render'], true);
