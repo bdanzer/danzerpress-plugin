@@ -3,13 +3,19 @@ namespace Danzerpress;
 
 class Boot 
 {
-    protected $sections_loaded = false;
+	protected $sections_loaded = false;
+	protected $sections = [];
 
-    public function __construct() {}
+	public function __construct() {}
+		
+	public function get_sections() 
+	{
+		return $this->sections;
+	}
 
     public function load_sections() 
     {
-        $this->sections_loaded = true;
+        $this->sections_loaded = apply_filters('dp_sections_loaded', true);
 
         $dir = dp::get_dir();
         $files = glob($dir . '/dp-sections/sections/*.php');

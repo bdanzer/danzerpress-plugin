@@ -31,12 +31,14 @@ class Sections
 	public function boot() 
 	{
 		if( have_rows($this->flexible_layout) || $this->is_block ) {
-			(new Boot())->load_sections();
+			$boot = new Boot();
+			$boot->load_sections();
+			
 
 			if (!$this->is_block) {
 				$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
 				$this->context['dp'] = new AcfContextHelper;
-				$this->context['section'] = $this->sections;
+				$this->context['section'] = $boot->get_sections();
 				$this->context['flexible_layout'] = $this->flexible_layout;
 
 				$this->render();
