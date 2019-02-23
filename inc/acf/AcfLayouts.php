@@ -9,9 +9,9 @@ class AcfLayouts {
 
     public function __construct() 
     {
-        add_filter( 'acf/load_field/name=flexible_layout', [$this, 'filter_danzerpress_layouts'], 10, 1);
-        add_filter( 'dp_acf_layout_hero', [$this, 'get_hero'], 10, 2);
-        add_filter( 'dp_acf_layout_text', [$this, 'get_text'], 10, 2);
+        add_filter('acf/load_field/name=flexible_layout', [$this, 'filter_danzerpress_layouts'], 10, 1);
+        add_filter('dp_acf_layout_hero', [$this, 'get_hero'], 10, 2);
+        add_filter('dp_acf_layout_text_sub_fields', [$this, 'get_text'], 10, 1 );
     }
 
     public function get_parent() 
@@ -71,7 +71,7 @@ class AcfLayouts {
                     'class' => '',
                     'id' => '',
                 ],
-                'default_value' => '',
+                'default_value' => 'Lorem Ipsum',
                 'placeholder' => '',
                 'prepend' => '',
                 'append' => '',
@@ -94,7 +94,7 @@ class AcfLayouts {
                     'class' => '',
                     'id' => '',
                 ],
-                'default_value' => '',
+                'default_value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis erat eget nunc eleifend pretium. Cras quis malesuada erat.',
                 'placeholder' => '',
                 'maxlength' => '',
                 'rows' => '',
@@ -211,7 +211,7 @@ class AcfLayouts {
      */
     public function filter_danzerpress_layouts( $field ) 
     {
-        define('IS_DEV', true);
+        //define('IS_DEV', true);
         //If is admin and acf-field-group bail
         if (is_admin() && get_current_screen()->post_type === 'acf-field-group') {
             return $field;
@@ -237,14 +237,15 @@ class AcfLayouts {
             //Looping through added fields, validate them, and add to all layouts
             $sub_fields = array_merge($this->dp_acf_get_valid_fields($prepend_fields, $key), $sub_fields);
             
-            $field['layouts'][$key]['sub_fields'] = array_merge($sub_fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key));
+            //Setting final sub_fields array, filterable by layout name
+            $field['layouts'][$key]['sub_fields'] = apply_filters("dp_acf_layout_{$layout['name']}_sub_fields", array_merge($sub_fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key)));
         }
 
         //dp_prepend_global_acf_fields
         //dpDie($field['layouts']['59fa84633e52e']['sub_fields']);
         //dpDie($field);
 
-        if (!defined('IS_DEV')) {
+        if (defined('IS_DEV')) {
             $this->dp_acf_write_json_field_group($field, 'danzerpress-sections');
         }
 
@@ -270,10 +271,20 @@ class AcfLayouts {
         return $fields;
     }
 
-    public function get_text($fields, $key) 
+    /**
+     * Change Text Section to use wysiwyg
+     */
+    public function get_text($fields) 
     {
-        var_dump($fields);
-        die;
+        //wysiwyg
+        foreach($fields as $key => $field) {
+            if ($field['key'] !== 'dp_section_description')
+                continue;
+
+            $fields[$key]['type'] = 'wysiwyg';
+        }
+
+        return $fields;
     }
 
     public function dp_acf_write_json_field_group( $field_group, $file ) 
