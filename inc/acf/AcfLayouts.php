@@ -11,6 +11,7 @@ class AcfLayouts {
     {
         add_filter( 'acf/load_field/name=flexible_layout', [$this, 'filter_danzerpress_layouts'], 10, 1);
         add_filter( 'dp_acf_layout_hero', [$this, 'get_hero'], 10, 2);
+        add_filter( 'dp_acf_layout_text', [$this, 'get_text'], 10, 2);
     }
 
     public function get_parent() 
@@ -210,6 +211,7 @@ class AcfLayouts {
      */
     public function filter_danzerpress_layouts( $field ) 
     {
+        define('IS_DEV', true);
         //If is admin and acf-field-group bail
         if (is_admin() && get_current_screen()->post_type === 'acf-field-group') {
             return $field;
@@ -266,6 +268,12 @@ class AcfLayouts {
         //merge to the end
         $fields = array_merge($fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key));
         return $fields;
+    }
+
+    public function get_text($fields, $key) 
+    {
+        var_dump($fields);
+        die;
     }
 
     public function dp_acf_write_json_field_group( $field_group, $file ) 
