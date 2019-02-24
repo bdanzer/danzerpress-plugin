@@ -113,9 +113,6 @@ class Section
 			];
 		}
 
-		// var_dump($layout);
-		// die;
-
 		$file = 'dp-sections/' . $called_class::$section_slug . '.twig';
 
 		$html =  self::get_section_header($context);

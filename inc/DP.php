@@ -8,7 +8,8 @@ use Danzerpress\hooks\Hooks;
 use Danzerpress\upgrader\AcfUpgrader;
 use Danzerpress\template\PluginTemplates;
 
-class DP {
+class DP 
+{
     protected $dp_plugin_db_ver_key = 'dp_plugin_ver';
 
     public function __construct() 

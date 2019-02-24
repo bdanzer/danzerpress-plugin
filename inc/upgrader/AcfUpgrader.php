@@ -1,7 +1,8 @@
 <?php
 namespace Danzerpress\upgrader;
 
-class AcfUpgrader {
+class AcfUpgrader 
+{
     protected $wpdb;
     protected $hero_layout = [
         1 => 'full-width',
