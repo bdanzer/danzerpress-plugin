@@ -18,7 +18,37 @@ class Section
 
 	public function __construct() 
 	{
+		$this->set_attributes($this->global_attributes());
 		$this->section_setup();
+	}
+
+	public function global_attributes() 
+	{
+		$array = [
+			'section_title' => [
+				'type' => 'string',
+				'items' => [
+					'type' => 'string',
+				]
+			],
+			'section_description' => [
+				'type' => 'string',
+				'items' => [
+					'type' => 'string',
+				]
+			],
+			'section_padding' => [
+				'type' => 'number',
+				'default' => 140
+			]
+		];
+
+		return apply_filters('dp_global_attributes', $array);
+	}
+
+	public function set_attributes($attributes) 
+	{
+		$this->attributes = array_merge($this->attributes, $attributes);
 	}
 
 	/**
@@ -82,6 +112,9 @@ class Section
 				'section_slug' => $called_class::$section_slug
 			];
 		}
+
+		// var_dump($layout);
+		// die;
 
 		$file = 'dp-sections/' . $called_class::$section_slug . '.twig';
 

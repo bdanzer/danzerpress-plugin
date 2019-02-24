@@ -34,7 +34,7 @@ class PluginTemplates {
         $page_template = basename(get_post_meta( $post->ID, '_wp_page_template', true ));
         $my_templates = $this->get_templates();
 
-        if (array_key_exists($page_template, $my_templates) == $page_template) {
+        if (!empty($page_template) && array_key_exists($page_template, $my_templates) == $page_template) {
             $template = DP::get_dir() . "/plugin-templates/{$page_template}";
         }
 

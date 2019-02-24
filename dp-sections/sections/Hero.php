@@ -39,8 +39,8 @@ class Hero extends Section
 			'default' => 'hero',
 		],
 		'hero_layout' => [
-			'type' => 'number',
-			'default' => 1,
+			'type' => 'string',
+			'default' => 'full-width',
 		],
 		'background_type' => [
 			'type' => 'string',
@@ -94,7 +94,7 @@ class Hero extends Section
 
         $section = '<div class="danzerpress-container-fw">';
         $section .= self::get_compiled_section($atts);
-        $section .= '</div>';
+		$section .= '</div>';
         
         return $section;
 	}

@@ -41,34 +41,6 @@ class Sections
 		}
 	}
 
-	public function global_attributes($atts, $namespace, $is_section = false) 
-	{
-		if ($is_section) {
-			$array = [
-				'section_title' => [
-					'type' => 'string',
-					'items' => [
-						'type' => 'string',
-					]
-				],
-				'section_description' => [
-					'type' => 'string',
-					'items' => [
-						'type' => 'string',
-					]
-				],
-				'section_padding' => [
-					'type' => 'number',
-					'default' => 140
-				]
-			];
-	
-			$atts = array_merge($atts, $array);
-		}
-	
-		return $atts;
-	}
-
 	public function render() 
 	{
 		Timber::render($this->template, $this->context, Danzerpress::get_ttl());
