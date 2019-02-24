@@ -6,6 +6,7 @@ use Danzerpress\filters\TwigFunctions;
 use Danzerpress\acf\AcfLayouts;
 use Danzerpress\hooks\Hooks;
 use Danzerpress\upgrader\AcfUpgrader;
+use Danzerpress\template\PluginTemplates;
 
 class DP {
     public function __construct() 
@@ -25,6 +26,7 @@ class DP {
         new PluginAssetLoader;
         new AcfLayouts;
         new AcfUpgrader;
+        new PluginTemplates;
 
         $boot = new Boot();
         $boot->load_sections();
@@ -53,5 +55,11 @@ class DP {
     public static function get_dir()
     {
         return DP_PLUGIN_DIR;
+    }
+
+    public static function get_ver() 
+    {
+        $theme_version = get_plugin_data(self::get_dir() . '/danzerpress.php')['Version'];
+        return $theme_version;
     }
 }
