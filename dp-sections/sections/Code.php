@@ -15,12 +15,10 @@ class Code extends Section
 	}
 
 	/**
-	 * Change Text Section to use wysiwyg
+	 * Change Code Section to use Raw Code over description
 	 */
 	public function get_code($fields) 
 	{
-		// var_dump($fields);
-		// die;
 		foreach($fields as $key => $field) {
 			if ($field['key'] !== 'dp_section_description')
 				continue;
