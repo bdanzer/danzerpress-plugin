@@ -23,7 +23,7 @@ class CssBuilder
         $post = get_post(get_the_ID());
         $content = $post->post_content;
 
-        if (!has_blocks($content))
+        if (!has_dp_blocks($content))
             return;
 
         $blocks = parse_blocks($content);

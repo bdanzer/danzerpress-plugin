@@ -21,6 +21,16 @@
 }
 
 .danzerpress-section {
+    &.danzerpress-even {
+        .danzerpress-half-content {
+            background: $white;
+        }
+    }
+    &.danzerpress-odd {
+        .danzerpress-half-content {
+            background: $light-grey;
+        }
+    }
     &.danzerpress-hero-section {
         .danzerpress-hero-normal {
             .danzerpress-section-description {

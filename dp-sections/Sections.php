@@ -12,15 +12,14 @@ class Sections
 	private $context = [];
 	protected static $is_section = false;
 
-	public function __construct($is_block = false) 
+	public function __construct() 
 	{
-		$this->is_block = $is_block;
 		self::$is_section = true;
 		$this->context = Danzerpress::get_context();
 
 		add_filter('block_attributes_filter', [$this, 'global_attributes'], 10, 3);
 		
-		$this->boot();
+		$this->set_sections();
 	}
 
 	public static function is_section() 
@@ -28,24 +27,17 @@ class Sections
 		return self::$is_section;
 	}
 
-	public function boot() 
+	public function set_sections() 
 	{
-		if( have_rows($this->flexible_layout) || $this->is_block ) {
-			$boot = new Boot();
-			$boot->load_sections();
-			
+		if (have_rows($this->flexible_layout)) {
+			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
+			$this->context['dp'] = new AcfContextHelper;
+			$this->context['section'] = Boot::get_sections();
+			$this->context['flexible_layout'] = $this->flexible_layout;
 
-			if (!$this->is_block) {
-				$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
-				$this->context['dp'] = new AcfContextHelper;
-				$this->context['section'] = $boot->get_sections();
-				$this->context['flexible_layout'] = $this->flexible_layout;
-
-				$this->render();
-			}
-			
+			$this->template = 'dp-sections/danzerpress-sections.twig';
 	   	} else {
-			$this->no_layouts();
+			$this->template = 'dp-sections/no_template.twig';
 		}
 	}
 
@@ -77,18 +69,8 @@ class Sections
 		return $atts;
 	}
 
-	public function no_layouts() 
-	{
-		Timber::render('dp-sections/no_template.twig', $this->context);
-	}
-
-	public function loop_layouts() 
-	{
-		Timber::render('dp-sections/danzerpress-sections.twig', $this->context, Danzerpress::get_ttl());
-	}
-
 	public function render() 
 	{
-		$this->loop_layouts();
+		Timber::render($this->template, $this->context, Danzerpress::get_ttl());
 	}
 }

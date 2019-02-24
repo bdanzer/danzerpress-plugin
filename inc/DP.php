@@ -9,6 +9,8 @@ use Danzerpress\hooks\Hooks;
 class DP {
     public function __construct() 
     {
+        do_action('dp_plugin_pre_load');
+
         if (!class_exists('Danzerpress\\DP_Theme')) {
             add_action( 'admin_notices', [$this, 'sample_admin_notice__error'] );
             return;
@@ -21,6 +23,11 @@ class DP {
         new TwigFunctions;
         new PluginAssetLoader;
         new AcfLayouts;
+
+        $boot = new Boot();
+        $boot->load_sections();
+        
+        do_action('dp_plugin_loaded');
     }
 
     public function set_constants() {}   

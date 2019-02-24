@@ -13,10 +13,14 @@ if (!defined("DP_PLUGIN_DIR")) {
     define("DP_PLUGIN_DIR", __DIR__);
 }
 
+do_action('dp_plugin_init');
+
 $autoload_path = DP_PLUGIN_DIR . '/vendor/autoload.php';        
 if ( file_exists( $autoload_path ) ) {
     require_once( $autoload_path );
 }
+
+include DP_PLUGIN_DIR . '/lib/dp_functions.php';
 
 /**
  * Allows updates to be sent via github
@@ -31,19 +35,10 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 $myUpdateChecker->setBranch('master');
 
-add_action('init', function() {
-    if (!class_exists('Danzerpress\\DP_Theme') && !is_admin()) {
-        return;
-    }
-
+add_action('dp_theme_loaded', function() {
     if (!function_exists('get_field')) {
         return;
     }
     
     new Danzerpress\DP;
-    
-});
-
-add_action('init', function() {
-    new Danzerpress\Sections(true);
 });

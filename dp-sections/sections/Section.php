@@ -13,7 +13,7 @@ class Section
 	public static $section_name = '';
 	public static $section_slug = '';
 	public $block_namespace;
-	protected $css;
+	protected $css = [];
 	protected $attributes = [];
 
 	public function __construct() 
@@ -61,7 +61,7 @@ class Section
 			$context = ['layout' => $context[0]];
 		}
 
-		self::get_compiled_section($context);
+		$html = self::get_compiled_section($context);
 
 		echo $html;
 	}

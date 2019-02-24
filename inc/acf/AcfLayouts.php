@@ -11,7 +11,6 @@ class AcfLayouts {
     {
         add_filter('acf/load_field/name=flexible_layout', [$this, 'filter_danzerpress_layouts'], 10, 1);
         add_filter('dp_acf_layout_hero', [$this, 'get_hero'], 10, 2);
-        add_filter('dp_acf_layout_text_sub_fields', [$this, 'get_text'], 10, 1 );
     }
 
     public function get_parent() 
@@ -268,22 +267,6 @@ class AcfLayouts {
 
         //merge to the end
         $fields = array_merge($fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key));
-        return $fields;
-    }
-
-    /**
-     * Change Text Section to use wysiwyg
-     */
-    public function get_text($fields) 
-    {
-        //wysiwyg
-        foreach($fields as $key => $field) {
-            if ($field['key'] !== 'dp_section_description')
-                continue;
-
-            $fields[$key]['type'] = 'wysiwyg';
-        }
-
         return $fields;
     }
 

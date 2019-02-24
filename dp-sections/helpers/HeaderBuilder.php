@@ -18,6 +18,7 @@ class HeaderBuilder {
     {
         self::$iterator++;
         $this->post_id = (get_the_ID()) ?: null;
+        $this->hero_layout = (isset($layout['hero_layout'])) ? $layout['hero_layout'] : null;
         $this->background_type = (isset($layout['background_type'])) ? $layout['background_type'] : null;
         $this->section_background = (isset($layout['section_background'])) ? $layout['section_background'] : null;
         $this->background_color = (isset($layout['background_color'])) ? $layout['background_color'] : null;
@@ -42,7 +43,7 @@ class HeaderBuilder {
             $classes[] = $this->custom_css_class;
         }
 
-        if ($this->background_type == 'half-and-half') {
+        if ($this->hero_layout == 'half-and-half') {
 			$classes[] = 'half-and-half';
         }
 

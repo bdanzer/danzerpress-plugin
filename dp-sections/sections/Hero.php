@@ -11,7 +11,7 @@ class Hero extends Section
 
 	/**
 	 * $selector => [
-	 *     $property => [$value, $append]
+	 *     $property => [$block_value, $append]
 	 * ]
 	 */
 	protected $css = [
@@ -84,10 +84,7 @@ class Hero extends Section
 		]
 	];
 
-	public function section_setup() 
-	{
-		new CssBuilder(self::$section_slug, $this->get_css());
-	}
+	public function section_setup() {}
 
 	public function block_render($atts, $content) 
 	{
