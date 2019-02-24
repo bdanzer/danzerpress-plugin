@@ -10,7 +10,7 @@ if (!defined("DP_PLUGIN_URL")) {
 }
 
 if (!defined("DP_PLUGIN_DIR")) {
-    define("DP_PLUGIN_DIR", __DIR__);
+    define("DP_PLUGIN_DIR", plugin_dir_path( __FILE__ ));
 }
 
 do_action('dp_plugin_init');

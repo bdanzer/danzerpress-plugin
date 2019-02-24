@@ -9,6 +9,8 @@ use Danzerpress\upgrader\AcfUpgrader;
 use Danzerpress\template\PluginTemplates;
 
 class DP {
+    protected $dp_plugin_db_ver_key = 'dp_plugin_ver';
+
     public function __construct() 
     {
         do_action('dp_plugin_pre_load');
@@ -32,6 +34,8 @@ class DP {
         $boot->load_sections();
         
         do_action('dp_plugin_loaded');
+
+        $this->check_for_updates();
     }
 
     public function set_constants() {}   
@@ -59,7 +63,17 @@ class DP {
 
     public static function get_ver() 
     {
-        $theme_version = get_plugin_data(self::get_dir() . '/danzerpress.php')['Version'];
-        return $theme_version;
+        $plugin_data = get_file_data(self::get_dir() . '/danzerpress.php', array('Version' => 'Version'), false);
+        $plugin_version = $plugin_data['Version'];
+        
+        return $plugin_version;
+    }
+
+    public function check_for_updates() 
+    {
+        if (get_option($this->dp_plugin_db_ver_key) !== self::get_ver()) {
+            update_option($this->dp_plugin_db_ver_key, self::get_ver());
+            do_action('dp_updater_ran_ver_' . self::get_ver());
+        }
     }
 }
