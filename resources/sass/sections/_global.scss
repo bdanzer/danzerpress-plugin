@@ -71,7 +71,7 @@
         margin-bottom: 5px;
         margin-top: 20px;
     }
-    .danzerpress-left {
+    &.danzerpress-left {
         text-align: left;
         > {
             * {
@@ -79,7 +79,7 @@
             }
         }
     }
-    .danzerpress-center {
+    &.danzerpress-center {
         text-align: center;
         > {
             * {
@@ -87,7 +87,7 @@
             }
         }
     }
-    .danzerpress-right {
+    &.danzerpress-right {
         text-align: center;
         > {
             * {
@@ -95,7 +95,7 @@
             }
         }
     }
-    .danzerpress-justify {
+    &.danzerpress-justify {
         text-align: justify;
         > {
             * {

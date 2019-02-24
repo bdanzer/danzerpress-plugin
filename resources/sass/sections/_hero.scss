@@ -31,6 +31,18 @@
             background: $light-grey;
         }
     }
+    &.background-type-image.half-and-half,
+    &.background-type-color.half-and-half {
+        .danzerpress-half-content {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .danzerpress-order-0 {
+            border-right: 2px solid;
+        }
+        .danzerpress-order-1 {
+            border-left: 2px solid;
+        }
+    }
     &.danzerpress-hero-section {
         .danzerpress-hero-normal {
             .danzerpress-section-description {
@@ -39,11 +51,6 @@
         }
         .danzerpress-two-thirds {
             max-width: 650px;
-        }
-        .hero-side-image {
-            .danzerpress-title, .danzerpress-section-description {
-                text-align: left;
-            }
         }
     }
 
@@ -66,7 +73,6 @@
         .danzerpress-title {
             margin-top: 0px;
             margin-bottom: 20px; 
-            text-align: left; 
             margin-left: 0px;
         }
         .danzerpress-half-content {
@@ -74,9 +80,6 @@
             flex-direction: column; 
             justify-content: center; 
             padding: 140px 0
-        }
-        .danzerpress-section-description {
-            text-align: left;
         }
         .danzerpress-wrap, .danzerpress-flex-row {
             height: 100%;

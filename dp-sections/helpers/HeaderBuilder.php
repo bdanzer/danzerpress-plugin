@@ -12,7 +12,8 @@ class HeaderBuilder {
     protected $background_color;
     protected $custom_css_class;
     protected $classes = [];
-    protected $styles = [];
+    protected $styles = '';
+    protected $hero_layout;
 
     public function __construct($layout) 
     {
@@ -23,6 +24,7 @@ class HeaderBuilder {
         $this->section_background = (isset($layout['section_background'])) ? $layout['section_background'] : null;
         $this->background_color = (isset($layout['background_color'])) ? $layout['background_color'] : null;
         $this->custom_css_class = (isset($layout['custom_css_class'])) ? $layout['custom_css_class'] : null;
+        $this->text_align = (isset($layout['text_align'])) ? $layout['text_align'] : null;
         $this->classes[] = (isset($layout['sections']['section_class'])) ? $layout['sections']['section_class'] : null;
     }
 
@@ -43,8 +45,12 @@ class HeaderBuilder {
             $classes[] = $this->custom_css_class;
         }
 
-        if ($this->hero_layout == 'half-and-half') {
-			$classes[] = 'half-and-half';
+        if ($this->hero_layout) {
+			$classes[] = $this->hero_layout;
+        }
+
+        if ($this->text_align) {
+            $classes[] = $this->text_align;
         }
 
 		if (self::$iterator == 1 && get_field('full_screen_section_1', 'option') && is_front_page()) {
@@ -58,7 +64,10 @@ class HeaderBuilder {
         return $classes;
     }
 
-    public function style_handler($styles) {}
+    public function style_handler($styles) 
+    {
+        $this->styles .= $styles;
+    }
     
     public function build_header()
 	{
@@ -72,12 +81,13 @@ class HeaderBuilder {
         }
         
         if ($this->background_color && $this->background_type == 'color') {
-            //$context['section_style'] = 'background:' . $this->background_color . ';';
+            $this->style_handler('background:' . $this->background_color . ';');
             $this->classes[] = 'background-type-color';
         }
 
         $context['section_id'] = 'section-' . self::$iterator;
         $context['section_class'] = 'danzerpress-section ' . $this->class_handler($this->classes);
+        $context['section_style'] = $this->styles;
 
         return Timber::compile('dp-sections/section-parts/section-header2.twig', $context, Danzerpress::get_ttl());
     }

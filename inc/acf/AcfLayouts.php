@@ -210,7 +210,7 @@ class AcfLayouts {
      */
     public function filter_danzerpress_layouts( $field ) 
     {
-        //define('IS_DEV', true);
+        define('IS_DEV', true);
         //If is admin and acf-field-group bail
         if (is_admin() && get_current_screen()->post_type === 'acf-field-group') {
             return $field;

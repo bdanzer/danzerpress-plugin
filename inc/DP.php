@@ -5,6 +5,7 @@ use Danzerpress\filters\DanzerpressFilters;
 use Danzerpress\filters\TwigFunctions;
 use Danzerpress\acf\AcfLayouts;
 use Danzerpress\hooks\Hooks;
+use Danzerpress\upgrader\AcfUpgrader;
 
 class DP {
     public function __construct() 
@@ -23,6 +24,7 @@ class DP {
         new TwigFunctions;
         new PluginAssetLoader;
         new AcfLayouts;
+        new AcfUpgrader;
 
         $boot = new Boot();
         $boot->load_sections();
