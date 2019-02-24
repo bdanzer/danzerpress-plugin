@@ -10,9 +10,6 @@ class Text extends Section
 	public static $section_name = 'danzerpress-block-text-section';
 	public static $section_slug = 'text';
 
-	/**
-	 * This is what boots the section
-	 */
 	public function section_setup()
 	{
 		add_filter('dp_acf_layout_text_sub_fields', [$this, 'get_text'], 10, 1 );

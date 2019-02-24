@@ -59,7 +59,6 @@
             color: white;
         }
     }
-
     &.dp-full-height {
         height: 100vh;
         display: flex;
@@ -117,16 +116,16 @@
 }
 
 @media screen and (max-width: 767px) {
-    .home {
-        .half-and-half .danzerpress-order-0 {
+    .danzerpress-section {
+        &.background-type-image.half-and-half .danzerpress-order-1 {
             display: none !important;
         }
-    }
-    .danzerpress-section.half-and-half .danzerpress-col-2 {
-        padding: 50px 0px !important;
-    }
-    div.half-and-half .danzerpress-content {
-        max-width: 90%;
-        padding: 0 15px;
+        &.danzerpress-section.half-and-half .danzerpress-col-2 {
+            padding: 50px 0px !important;
+        }
+        &.half-and-half .danzerpress-content {
+            max-width: 90%;
+            padding: 0 15px;
+        }
     }
 }

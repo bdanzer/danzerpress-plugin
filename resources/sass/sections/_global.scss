@@ -73,34 +73,26 @@
     }
     &.danzerpress-left {
         text-align: left;
-        > {
-            * {
-                text-align: left;
-            }
+        * {
+            text-align: left;
         }
     }
     &.danzerpress-center {
         text-align: center;
-        > {
-            * {
-                text-align: center;
-            }
+        * {
+            text-align: center;
         }
     }
     &.danzerpress-right {
-        text-align: center;
-        > {
-            * {
-                text-align: right;
-            }
+        text-align: right;
+        * {
+            text-align: right;
         }
     }
     &.danzerpress-justify {
         text-align: justify;
-        > {
-            * {
-                text-align: justify;
-            }
+        * {
+            text-align: justify;
         }
     }
 }
