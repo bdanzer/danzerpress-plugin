@@ -5,11 +5,13 @@ use Timber;
 
 class CssBuilder
 {
+    protected $section;
     protected $section_number;
     protected $css_array;
 
     public function __construct($section, array $css) 
     {
+        $this->section = $section;
         $this->css_array = $css;
         add_action('wp_head', [$this, 'render_css']);
     }
@@ -36,13 +38,13 @@ class CssBuilder
                 continue;
                 
             $this->section_number++;
-            $section_number = "#section-{$this->section_number} ";
+            $section_id = "#section-{$this->section_number} ";
 
             foreach ($this->css_array as $parent_selector => $properties) {
                 foreach($properties as $key => $value) {
                     $append = (isset($value[1])) ? $value[1] : '';
                     if (isset($block['attrs'][$value[0]])) {
-                        $string .= $section_number . $parent_selector . "{" . $key . ':' . $block['attrs'][$value[0]] . $append . ";}";
+                        $string .= $section_id . $parent_selector . "{" . $key . ':' . $block['attrs'][$value[0]] . $append . ";}";
                     } 
                 }
             }

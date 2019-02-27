@@ -20,9 +20,6 @@
                 "dp-sections/helpers", 
                 "inc"
             ],
-            "Danzerpress\\filters\\" : [
-                "filters"
-            ],
             "Danzerpress\\chunks\\DP\\": [
                 "inc/chunks"
             ]

@@ -16,9 +16,6 @@ class Sections
 	{
 		self::$is_section = true;
 		$this->context = Danzerpress::get_context();
-
-		add_filter('block_attributes_filter', [$this, 'global_attributes'], 10, 3);
-		
 		$this->set_sections();
 	}
 

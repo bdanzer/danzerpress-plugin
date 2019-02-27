@@ -22,6 +22,16 @@ class Section
 		$this->section_setup();
 	}
 
+	/**
+	 * This is what boots the section
+	 */
+	public function section_setup() {}
+
+	/**
+	 * This is for custom gutenberg blocks
+	 */
+	public function block_render($atts, $content) {}
+
 	public function global_attributes() 
 	{
 		$array = [
@@ -50,11 +60,6 @@ class Section
 	{
 		$this->attributes = array_merge($this->attributes, $attributes);
 	}
-
-	/**
-	 * This is what boots the section
-	 */
-	public function section_setup() {}
 
 	public function get_css() 
 	{

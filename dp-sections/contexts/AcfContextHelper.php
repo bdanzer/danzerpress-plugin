@@ -5,10 +5,7 @@ use Danzerpress\HeaderBuilder;
 
 class AcfContextHelper
 {	
-	public function __construct() 
-	{
-
-	}
+	public function __construct() {}
 
 	public function get_h_tag($content) 
 	{
@@ -25,10 +22,7 @@ class AcfContextHelper
 		return $header_builder->build_header();
 	}
 
-	public function get_background($iterator)
-	{
-
-	}
+	public function get_background($iterator) {}
 
 	public function section_image($section_image) 
 	{

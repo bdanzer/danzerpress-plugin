@@ -2,8 +2,5 @@
 namespace Danzerpress\chunks\DP;
 
 class Test {
-    public static function chunk()
-    {
-        
-    }
+    public static function chunk() {}
 }
