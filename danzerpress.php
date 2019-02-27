@@ -33,7 +33,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 );
 
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
-$myUpdateChecker->setBranch('master');
+$myUpdateChecker->setBranch((get_field('dp_env', 'options')) ?: 'master');
 
 add_action('dp_theme_loaded', function() {
     if (!function_exists('get_field')) {
