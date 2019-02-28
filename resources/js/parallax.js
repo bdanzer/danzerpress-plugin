@@ -32,7 +32,7 @@ class Parallax {
     scrollHandler() 
     {
         this.parallaxItems.forEach(parallaxItem => {
-            var sectionParent = parallaxItem.parentElement,
+            var sectionParent = (parallaxItem.parentElement.classList.contains('danzerpress-title-area')) ? parallaxItem.parentElement : parallaxItem.closest('section'),
                 sectionParentTop = this.getElementOffset(sectionParent),
                 parentOffsetBottom = sectionParentTop + sectionParent.offsetHeight,
                 windowHeightNav = (this.getElementOffset(parallaxItem) !== 0) ? window.pageYOffset + this.navHeight : window.pageYOffset;
