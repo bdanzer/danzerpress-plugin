@@ -1,10 +1,10 @@
 <?php
 namespace Danzerpress;
 
-use Danzerpress\Contexts\Danzerpress;
+use Danzerpress\contexts\Danzerpress;
 use Danzerpress\AcfContextHelper;
 use Danzerpress\Sections;
-use Danzerpress\Contexts\SectionsContext;
+use Danzerpress\contexts\SectionsContext;
 use Timber;
 
 class Section

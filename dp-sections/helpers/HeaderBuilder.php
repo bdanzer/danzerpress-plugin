@@ -1,7 +1,7 @@
 <?php
 namespace Danzerpress;
 
-use Danzerpress\Contexts\Danzerpress;
+use Danzerpress\contexts\Danzerpress;
 use Timber;
 
 class HeaderBuilder {

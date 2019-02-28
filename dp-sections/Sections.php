@@ -1,8 +1,8 @@
 <?php
 namespace Danzerpress;
 
-use Danzerpress\Contexts\Danzerpress;
-use Danzerpress\Contexts\DanzerpressPostContext;
+use Danzerpress\contexts\Danzerpress;
+use Danzerpress\contexts\PostContext;
 use Timber;
 
 class Sections 
@@ -27,7 +27,7 @@ class Sections
 	public function set_sections() 
 	{
 		if (have_rows($this->flexible_layout)) {
-			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
+			$this->context['post'] = Timber::get_post(get_the_ID(), PostContext::class);
 			$this->context['dp'] = new AcfContextHelper;
 			$this->context['section'] = Boot::get_sections();
 			$this->context['flexible_layout'] = $this->flexible_layout;
