@@ -3746,7 +3746,11 @@
                     "new_lines": "",
                     "_name": "section_description",
                     "_valid": 1,
-                    "parent_layout": "59fab4b8f30cf"
+                    "parent_layout": "59fab4b8f30cf",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
                 },
                 {
                     "ID": 0,

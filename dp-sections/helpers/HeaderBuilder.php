@@ -89,6 +89,6 @@ class HeaderBuilder {
         $context['section_class'] = 'danzerpress-section ' . $this->class_handler($this->classes);
         $context['section_style'] = $this->styles;
 
-        return Timber::compile('dp-sections/section-parts/section-header2.twig', $context, Danzerpress::get_ttl());
+        return Timber::compile('dp-sections/section-parts/section-header.twig', $context, Danzerpress::get_ttl());
     }
 }

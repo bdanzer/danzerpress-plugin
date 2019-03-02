@@ -25,7 +25,13 @@ class Text extends Section
 			if ($field['key'] !== 'dp_section_description')
 				continue;
 
-			$fields[$key]['type'] = 'wysiwyg';
+			$fields[$key] = array_merge($fields[$key], [
+				'type' => 'wysiwyg',
+				'tabs' => 'all',
+				'toolbar' => 'basic',
+				'media_upload' => 0,
+				'delay' => 0
+			]);
 		}
 
 		return $fields;

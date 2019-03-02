@@ -4,6 +4,7 @@ namespace Danzerpress;
 use Danzerpress\filters\DanzerpressFilters;
 use Danzerpress\filters\TwigFunctions;
 use Danzerpress\acf\AcfLayouts;
+use Danzerpress\acf\AcfFields;
 use Danzerpress\hooks\Hooks;
 use Danzerpress\upgrader\AcfUpgrader;
 use Danzerpress\template\PluginTemplates;
@@ -27,6 +28,7 @@ class DP
         new DanzerpressFilters;
         new TwigFunctions;
         new PluginAssetLoader;
+        new AcfFields;
         new AcfLayouts;
         new AcfUpgrader;
         new PluginTemplates;
