@@ -1,13 +1,13 @@
 {
-  "name": "danzerpress-child",
+  "name": "danzerpress-plugin",
   "version": "1.0.0",
-  "description": "NP011 Child Theme",
-  "main": "gulpfile.js",
+  "description": "DanzerPress Plugin",
+  "main": "webpack.config.js",
   "author": "Britt Danzer",
   "scripts": {
+    "dev": "export NODE_ENV=development && webpack --mode=development",
     "build": "export NODE_ENV=production && webpack -p",
-    "watch": "export NODE_ENV=development && webpack --watch --mode=development",
-    "watch:sass": "node-sass -w ./resources/sass/plugin.scss ./dist/plugin.min.css --output-style compressed"
+    "watch": "export NODE_ENV=development && webpack --watch --mode=development"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
