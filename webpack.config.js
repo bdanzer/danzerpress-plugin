@@ -1,41 +1,68 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const debug = process.env.NODE_ENV !== 'production';
+const path = require('path');
 const webpack = require('webpack');
 
-var extractBlockSCSS = new MiniCssExtractPlugin({
-  filename: "./plugin.min.css",
-})
+// Extract style.css for both editor and frontend styles.
+const pluginCSSPlugin = new ExtractTextPlugin( {
+	filename: 'plugin.min.css',
+} );
+
+// Extract style.css for both editor and frontend styles.
+const blocksCSSPlugin = new ExtractTextPlugin( {
+	filename: 'blocks.style.build.css',
+} );
+
+// Extract editor.css for editor styles.
+const editBlocksCSSPlugin = new ExtractTextPlugin( {
+	filename: 'blocks.editor.build.css',
+} );
 
 var plugins = [
-    extractBlockSCSS
+    pluginCSSPlugin,
+    blocksCSSPlugin,
+    editBlocksCSSPlugin
 ];
 
-var scssConfig = [
-    {
-        loader: process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-    }, 
+const scssConfig = [
     {
       loader: 'css-loader',
       options: {
-        sourceMap: true
+        sourceMap: debug
       }
     },
     {
       loader: 'sass-loader',
       options: {
-        sourceMap: true
+        sourceMap: debug
       }
     }
 ];
+
+/**
+ * Adding import method for gutenberg stuff
+ */
+
+var gutenbergConfig = [
+    scssConfig[0], 
+    {
+        'loader': 'sass-loader',
+        'options': {}
+    }
+];
+gutenbergConfig[1].options = Object.assign(gutenbergConfig[1].options, {data: '@import "./resources/gutenberg/common.scss";\n'});
 
 var config = {
     context: __dirname,
     devtool: debug ? 'inline-sourcemap' : false,
     mode: debug ? 'development' : 'production',
-    entry: './resources/js/entry.js',
+    entry: {
+        'plugin.min': path.resolve(__dirname, 'resources/js/entry.js'),
+        'blocks.build': path.resolve(__dirname, 'resources/gutenberg/blocks.js'),
+    },
     output: {
         path: __dirname + '/dist/',
-        filename: 'plugin.min.js'
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -51,7 +78,17 @@ var config = {
             {
                 test: /plugin\.scss$/,
                 exclude: /node_modules/,
-                use: scssConfig
+                use: pluginCSSPlugin.extract(scssConfig)
+            },
+            {
+                test: /editor\.scss$/,
+                exclude: /node_modules/,
+                use: editBlocksCSSPlugin.extract(gutenbergConfig)
+            },
+            {
+                test: /style\.scss$/,
+                exclude: /node_modules/,
+                use: blocksCSSPlugin.extract(gutenbergConfig)
             }
         ]
     },

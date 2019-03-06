@@ -80,7 +80,8 @@ class Section
 
 	public static function get_section_header($context) 
 	{
-		return Timber::compile('dp-sections/section-parts/section-header.twig', $context, Danzerpress::get_ttl());
+		$header_builder = new HeaderBuilder($context);
+		return $header_builder->build_header();
 	}
 
 	public static function get_section_footer() 

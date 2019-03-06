@@ -4,7 +4,8 @@ namespace Danzerpress;
 use Danzerpress\contexts\Danzerpress;
 use Timber;
 
-class HeaderBuilder {
+class HeaderBuilder 
+{
     protected static $iterator = 0;
     protected $post_id;
     protected $background_type;

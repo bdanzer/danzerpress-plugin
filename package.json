@@ -12,11 +12,13 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-watch": "^7.0.0",
     "c": "^0.1.0",
+    "cgb-scripts": "^1.15.0",
     "css-loader": "^2.1.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "jshint-stylish": "^1.0.2",
@@ -26,5 +28,6 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
-  }
+  },
+  "dependencies": {}
 }
