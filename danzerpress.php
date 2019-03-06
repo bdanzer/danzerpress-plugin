@@ -41,4 +41,4 @@ add_action('dp_theme_loaded', function() {
     new Danzerpress\DP;
 });
 
-include DP_PLUGIN_DIR . '/resources/gutenberg/init.php';
+// include DP_PLUGIN_DIR . '/resources/gutenberg/init.php';
