@@ -2,7 +2,7 @@
 /*
 Plugin Name: Danzerpress Plugin
 Description: Adds Danzerpress Sections to theme and other WordPress integrations
-Version: 4.1
+Version: 4.0.0
 */
 
 namespace Danzerpress;
