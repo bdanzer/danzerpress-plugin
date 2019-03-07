@@ -2,8 +2,17 @@
 /*
 Plugin Name: Danzerpress Plugin
 Description: Adds Danzerpress Sections to theme and other WordPress integrations
-Version: 3.9
+Version: 4.0.0
 */
+
+namespace Danzerpress;
+
+/**
+ * Basically just want to prevent fatal erros if it was 
+ * activated twice for whatever reason
+ */
+if (class_exists(DP::class))
+    return;
 
 if (!defined("DP_PLUGIN_URL")) {
     define("DP_PLUGIN_URL", plugin_dir_url( __FILE__ ));    
@@ -26,7 +35,7 @@ include DP_PLUGIN_DIR . '/lib/dp_functions.php';
  * Allows updates to be sent via github
  */
 require 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+$myUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/bdanzer/danzerpress-plugin/',
 	__FILE__,
 	'danzerpress-plugin'
@@ -38,7 +47,7 @@ add_action('dp_theme_loaded', function() {
         return;
     }
     
-    new Danzerpress\DP;
+    new DP;
 });
 
 // include DP_PLUGIN_DIR . '/resources/gutenberg/init.php';

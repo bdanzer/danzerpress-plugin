@@ -104,14 +104,13 @@ class Section
 
 	public static function get_compiled_section($layout) 
 	{
-		$called_class = get_called_class();
-
 		$context = [];
+		$called_class = get_called_class();
 
 		$context['dp'] = new AcfContextHelper;
 		$context['layout'] = $layout;
 
-		if (!isset($layout['sections'])) {
+		if (!isset($context['layout']['sections'])) {
 			$context['layout']['sections'] = [
 				'section_name' => $called_class::$section_name,
 				'section_class' => $called_class::$section_name,
@@ -121,10 +120,12 @@ class Section
 
 		$file = 'dp-sections/' . $called_class::$section_slug . '.twig';
 
-		$html =  self::get_section_header($context);
-		$html .= Timber::compile($file, $context, Danzerpress::get_ttl());
-		$html .= self::get_section_footer();
+		$context = apply_filters("dp_section_{$called_class::$section_slug}_context", $context);
 
-		return $html;
+		$section_header_html = apply_filters("dp_secton_header_html_{$called_class::$section_slug}", self::get_section_header($context['layout']), $context);
+		$section_body_html = apply_filters("dp_section_body_html_{$called_class::$section_slug}", Timber::compile($file, $context, Danzerpress::get_ttl()), $context, get_section_iterator());
+		$section_footer_html = apply_filters("dp_section_footer_html_{$called_class::$section_slug}", self::get_section_footer(), $context);
+
+		return $section_header_html . $section_body_html . $section_footer_html;
 	}
 }

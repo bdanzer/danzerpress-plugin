@@ -16,10 +16,9 @@ class AcfContextHelper
 		return '<h2 class="danzerpress-title">' . $content . '</h2>';
 	}
 
-	public function header_builder($layout)
+	public function get_iterator()
 	{
-		$header_builder = new HeaderBuilder($layout);
-		return $header_builder->build_header();
+		return get_section_iterator();
 	}
 
 	public function get_background($iterator) {}

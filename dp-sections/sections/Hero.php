@@ -91,7 +91,7 @@ class Hero extends Section
 		if (isset($atts['media'])) {
             $atts['section_background'] = $atts['media']['url'];
         }
-
+		
         $section = '<div class="danzerpress-container-fw">';
         $section .= self::get_compiled_section($atts);
 		$section .= '</div>';

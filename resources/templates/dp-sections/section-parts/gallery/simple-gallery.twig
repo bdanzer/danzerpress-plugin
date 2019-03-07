@@ -5,7 +5,7 @@
 			{% for image in layout.section_gallery %}
 				<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzepress-xs-2 wow slideInUp">
 					<div class="danzerpress-image-wrap">
-						<a data-fancybox="'simple-gallery-section-'{{ iterator }}" href="{{ TimberImage(image.id).src }}">
+						<a data-fancybox="'simple-gallery-section-'{{ dp.get_iterator }}" href="{{ TimberImage(image.id).src }}">
 							<img alt="Image for {{ post.title }}" src="{{TimberImage(image.id).src|resize(480)}}">
 						</a>
 					</div>
