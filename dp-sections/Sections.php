@@ -56,7 +56,7 @@ class Sections
 			$class = __NAMESPACE__ . '\\' . $section;
 
 			if (array_key_exists($section, Boot::get_sections())) {
-				$this->set_section_html($class::get_compiled_section($field));
+				$this->set_section_html($class::get_compiled_section($field, $this->context));
 			}
 		}
 	}

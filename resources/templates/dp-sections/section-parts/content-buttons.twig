@@ -1,11 +1,11 @@
 {% if (layout.button_text_left or layout.button_text_right) %}
 	<div class="danzerpress-button-wrap">
 		{% if (layout.button_text_left) %}
-			<a href="{{ layout.button_link_left }}" class="danzerpress-button-modern danzerpress-button-left danzerpress-hash wow {{ options.get_button_animation }}">{{ layout.button_text_left }}</a>
+			<a href="{{ layout.button_link_left }}" class="danzerpress-button-modern danzerpress-button-left danzerpress-hash" data-aos="{{ options.get_button_animation }}">{{ layout.button_text_left }}</a>
 		{% endif %}
 
 		{% if (layout.button_text_right) %}
-			<a href="{{ layout.button_link_right }}" class="danzerpress-button-modern-transparent danzerpress-hash wow fadeIn">{{ layout.button_text_right }}</a>
+			<a href="{{ layout.button_link_right }}" class="danzerpress-button-modern-transparent danzerpress-hash" data-aos="fadeIn">{{ layout.button_text_right }}</a>
 		{% endif %}
 	</div>
 {% endif %}

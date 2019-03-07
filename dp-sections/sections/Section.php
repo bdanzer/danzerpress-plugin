@@ -102,9 +102,14 @@ class Section
 		echo $html;
 	}
 
-	public static function get_compiled_section($layout) 
+	public static function get_compiled_section($layout, $_context = '') 
 	{
-		$context = [];
+		if ($_context) {
+			$context = $_context;
+		} else {
+			$context = [];
+		}
+		
 		$called_class = get_called_class();
 
 		$context['dp'] = new AcfContextHelper;

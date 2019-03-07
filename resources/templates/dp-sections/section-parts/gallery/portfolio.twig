@@ -3,7 +3,7 @@
 	{% if (layout.portfolio_repeater) %}
 		<div class="danzerpress-flex-row danzerpress-row-fix">
 			{% for portfolio in layout.portfolio_repeater %}
-				<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzerpress-xs-2 portfolio-section wow fadeInUp">
+				<div class="danzerpress-col-3 danzerpress-md-2 danzerpress-sm-2 danzerpress-xs-2 portfolio-section" data-aos="fadeInUp">
 					<div class="danzerpress-image-wrap danzerpress-tilt" data-tilt>
 						<a href="{{ portfolio.link }}">
 							{{dpImage(portfolio.image)}}
