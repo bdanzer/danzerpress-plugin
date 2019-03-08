@@ -13,6 +13,7 @@ class Hero extends Section
 	 * $selector => [
 	 *     $property => [$block_value, $append]
 	 * ]
+	 * '' defaults to #id of section ie #section-1 prefix
 	 */
 	protected $css = [
         '.danzerpress-title' => [

@@ -102,6 +102,10 @@ class Section
 		echo $html;
 	}
 
+	/**
+	 * Layout = data for the danzerpress sections
+	 * $_context is the context helpers for the sections
+	 */
 	public static function get_compiled_section($layout, $_context = '') 
 	{
 		if ($_context) {
@@ -131,6 +135,6 @@ class Section
 		$section_body_html = apply_filters("dp_section_body_html_{$called_class::$section_slug}", Timber::compile($file, $context, Danzerpress::get_ttl()), $context, get_section_iterator());
 		$section_footer_html = apply_filters("dp_section_footer_html_{$called_class::$section_slug}", self::get_section_footer(), $context);
 
-		return $section_header_html . $section_body_html . $section_footer_html;
+		return apply_filters("dp_section_html_{$called_class::$section_slug}", $section_header_html . $section_body_html . $section_footer_html, $context, get_section_iterator());
 	}
 }
