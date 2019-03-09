@@ -16,7 +16,9 @@ class AcfUpgrader
         global $wpdb;
         $this->wpdb = $wpdb;
 
-        add_action('dp_updater_ran_ver_3.0', [$this, 'update_3_0']);
+        if (!get_option('dp_3_0')) {
+            $this->update_3_0();
+        }
     }
 
     public function update_3_0() 
@@ -33,5 +35,7 @@ class AcfUpgrader
                 update_metadata('post', $result['post_id'], $result['meta_key'], $this->hero_layout[$result['meta_value']]);
             }
         }
+
+        update_option('dp_3_0', true);
     }
 }
