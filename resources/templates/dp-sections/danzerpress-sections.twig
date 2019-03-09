@@ -1,15 +1,7 @@
 {% extends "templates/base.twig" %}
 
 {% block body %}
-<div class="danzerpress-container-fw" style="background: transparent;">
-	{% for layout in post.get_field(flexible_layout) %}
-	    {% if (layout.acf_fc_layout == section[layout.acf_fc_layout].section_slug) %}
-	    	{% set iterator = iterator + 1 %}
-			{% set layout = layout|merge({sections:section[layout.acf_fc_layout]}) %}
-	    	{% include 'dp-sections/section-parts/section-header.twig' %}
-			{% include 'dp-sections/' ~ layout.acf_fc_layout ~ '.twig' %}
-			{% include 'dp-sections/section-parts/section-footer.twig' %}
-	    {% endif %}
-	{% endfor %}
-</div>
+	<div class="danzerpress-container-fw" style="background: transparent;">
+		{{sections_html}}
+	</div>
 {% endblock %}

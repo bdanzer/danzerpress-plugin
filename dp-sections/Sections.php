@@ -1,8 +1,8 @@
 <?php
 namespace Danzerpress;
 
-use Danzerpress\Contexts\Danzerpress;
-use Danzerpress\Contexts\DanzerpressPostContext;
+use Danzerpress\contexts\Danzerpress;
+use Danzerpress\contexts\PostContext;
 use Timber;
 
 class Sections 
@@ -11,6 +11,7 @@ class Sections
 	protected $flexible_layout = 'flexible_layout';
 	private $context = [];
 	protected static $is_section = false;
+	protected $section_html = '';
 
 	public function __construct() 
 	{
@@ -27,14 +28,36 @@ class Sections
 	public function set_sections() 
 	{
 		if (have_rows($this->flexible_layout)) {
-			$this->context['post'] = Timber::get_post(get_the_ID(), DanzerpressPostContext::class);
-			$this->context['dp'] = new AcfContextHelper;
-			$this->context['section'] = Boot::get_sections();
-			$this->context['flexible_layout'] = $this->flexible_layout;
+			$this->set_sections_html();
 
+			$this->context['post'] = Timber::get_post(get_the_ID(), PostContext::class);
+			$this->context['sections_html'] = $this->section_html;
+			
 			$this->template = 'dp-sections/danzerpress-sections.twig';
 	   	} else {
 			$this->template = 'dp-sections/no_template.twig';
+		}
+	}
+
+	public function set_section_html($section_html)
+	{
+		$this->section_html .= $section_html;
+	}
+
+	/**
+	 * The idea is to craete a way to create a filterable sections call
+	 */
+	public function set_sections_html()
+	{
+		$fields = get_field($this->flexible_layout);
+
+		foreach ($fields as $field) {
+			$section = $field['acf_fc_layout'];
+			$class = __NAMESPACE__ . '\\' . $section;
+
+			if (array_key_exists($section, Boot::get_sections())) {
+				$this->set_section_html($class::get_compiled_section($field, $this->context));
+			}
 		}
 	}
 

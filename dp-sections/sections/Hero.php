@@ -13,6 +13,7 @@ class Hero extends Section
 	 * $selector => [
 	 *     $property => [$block_value, $append]
 	 * ]
+	 * '' defaults to #id of section ie #section-1 prefix
 	 */
 	protected $css = [
         '.danzerpress-title' => [
@@ -91,7 +92,7 @@ class Hero extends Section
 		if (isset($atts['media'])) {
             $atts['section_background'] = $atts['media']['url'];
         }
-
+		
         $section = '<div class="danzerpress-container-fw">';
         $section .= self::get_compiled_section($atts);
 		$section .= '</div>';

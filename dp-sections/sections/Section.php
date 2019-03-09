@@ -1,10 +1,10 @@
 <?php
 namespace Danzerpress;
 
-use Danzerpress\Contexts\Danzerpress;
+use Danzerpress\contexts\Danzerpress;
 use Danzerpress\AcfContextHelper;
 use Danzerpress\Sections;
-use Danzerpress\Contexts\SectionsContext;
+use Danzerpress\contexts\SectionsContext;
 use Timber;
 
 class Section
@@ -80,7 +80,8 @@ class Section
 
 	public static function get_section_header($context) 
 	{
-		return Timber::compile('dp-sections/section-parts/section-header.twig', $context, Danzerpress::get_ttl());
+		$header_builder = new HeaderBuilder($context);
+		return $header_builder->build_header();
 	}
 
 	public static function get_section_footer() 
@@ -101,16 +102,24 @@ class Section
 		echo $html;
 	}
 
-	public static function get_compiled_section($layout) 
+	/**
+	 * Layout = data for the danzerpress sections
+	 * $_context is the context helpers for the sections
+	 */
+	public static function get_compiled_section($layout, $_context = '') 
 	{
+		if ($_context) {
+			$context = $_context;
+		} else {
+			$context = [];
+		}
+		
 		$called_class = get_called_class();
-
-		$context = [];
 
 		$context['dp'] = new AcfContextHelper;
 		$context['layout'] = $layout;
 
-		if (!isset($layout['sections'])) {
+		if (!isset($context['layout']['sections'])) {
 			$context['layout']['sections'] = [
 				'section_name' => $called_class::$section_name,
 				'section_class' => $called_class::$section_name,
@@ -120,10 +129,12 @@ class Section
 
 		$file = 'dp-sections/' . $called_class::$section_slug . '.twig';
 
-		$html =  self::get_section_header($context);
-		$html .= Timber::compile($file, $context, Danzerpress::get_ttl());
-		$html .= self::get_section_footer();
+		$context = apply_filters("dp_section_{$called_class::$section_slug}_context", $context);
 
-		return $html;
+		$section_header_html = apply_filters("dp_secton_header_html_{$called_class::$section_slug}", self::get_section_header($context['layout']), $context);
+		$section_body_html = apply_filters("dp_section_body_html_{$called_class::$section_slug}", Timber::compile($file, $context, Danzerpress::get_ttl()), $context, get_section_iterator());
+		$section_footer_html = apply_filters("dp_section_footer_html_{$called_class::$section_slug}", self::get_section_footer(), $context);
+
+		return apply_filters("dp_section_html_{$called_class::$section_slug}", $section_header_html . $section_body_html . $section_footer_html, $context, get_section_iterator());
 	}
 }

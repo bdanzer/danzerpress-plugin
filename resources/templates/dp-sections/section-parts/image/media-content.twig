@@ -1,9 +1,9 @@
 <div class="danzerpress-col-1 danzerpress-col-center">
 	<div class="danzerpress-flex-row danzerpress-row-fix">
 		<div class="danzerpress-col-2 {{ dp.image_side(layout.image_side).order }}">
-			<div class="danzerpress-image-wrap danzerpress-rectangle wow {{ dp.image_side(layout.image_side).wow }}">
+			<div class="danzerpress-image-wrap danzerpress-rectangle" data-aos="{{ dp.image_side(layout.image_side).wow }}">
 				{% if ( layout.image_or_video == 'image') %}
-					{{ dpImage(layout.section_image, null, 'data-fancybox=section-' ~ iterator ~ ' data-src=#src#') }}
+					{{ dpImage(layout.section_image, null, 'data-fancybox=section-' ~ dp.get_iterator ~ ' data-src=#src#') }}
 				{% elseif ( layout.image_or_video == 'video' ) %}
 					{{ dp.build_video(layout.section_video) }}
 				{% endif %}

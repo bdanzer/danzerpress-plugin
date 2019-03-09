@@ -6,188 +6,24 @@ use Danzerpress\DP;
 
 class AcfLayouts {
     protected $parent = 'field_59fa78934bca2';
+    protected $file = '';
+    protected $dir = '';
 
     public function __construct() 
     {
         add_filter('acf/load_field/name=flexible_layout', [$this, 'filter_danzerpress_layouts'], 10, 1);
-        add_filter('dp_acf_layout_hero', [$this, 'get_hero'], 10, 2);
+        $this->set_file();
+        $this->set_dir();
     }
 
-    public function get_parent() 
+    public function set_file($file = '')
     {
-        return $this->parent;
+        $this->file = apply_filters('dp_json_file_location', 'danzerpress-sections.json');
     }
 
-    public function get_prepend_fields() 
+    public function set_dir()
     {
-        $first_unvalid_fields = [
-            [
-                'key' => 'dp_custom_css_class',
-                'label' => 'Custom CSS Class',
-                'name' => 'custom_css_class',
-                'prefix' => 'acf',
-                'type' => 'text',
-                'value' => null,
-                'menu_order' => 0,
-                'instructions' => 'This is not required, this is just for people who want to add more specific CSS styling.',
-                'required' => 0,
-                'id' => '',
-                'class' => '',
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
-                'default_value' => '', 
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ],
-        ];
-        $first_unvalid_fields = apply_filters('dp_prepend_global_acf_fields', $first_unvalid_fields);
-        return $first_unvalid_fields;
-    }
-
-    public function get_fields() 
-    {
-        $unvalid_fields = [
-            [
-                'key' => 'dp_section_title',
-                'label' => 'Title',
-                'name' => 'section_title',
-                'prefix' => 'acf',
-                'type' => 'text',
-                'value' => null,
-                'instructions' => '',
-                'required' => 0,
-                'id' => '',
-                'class' => '',
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
-                'default_value' => 'Lorem Ipsum',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'maxlength' => '',
-            ],
-            [
-                'key' => 'dp_section_description',
-                'label' => 'Description',
-                'name' => 'section_description',
-                'prefix' => 'acf',
-                'type' => 'textarea',
-                'value' => null,
-                'instructions' => '',
-                'required' => 0,
-                'id' => '',
-                'class' => '',
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
-                'default_value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis erat eget nunc eleifend pretium. Cras quis malesuada erat.',
-                'placeholder' => '',
-                'maxlength' => '',
-                'rows' => '',
-                'new_lines' => '',
-            ],
-            [
-                'key' =>  'dp_button_text_left',
-                'label' =>  'Button Text Left', 
-                'name' =>  'button_text_left',
-                'prefix' =>  'acf' ,
-                'type' =>  'text',
-                'value' => null,
-                'instructions' =>  '',
-                'required' => 0,
-                'id' =>  '' ,
-                'class' =>  '' ,
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' =>  '',
-                    'class' =>  '' ,
-                    'id' =>  '' ,
-                ],
-                'default_value' =>  '',
-                'placeholder' =>  '',
-                'prepend' =>  '',
-                'append' =>  '',
-                'maxlength' =>  ''
-            ],
-            [
-                'key' =>  'dp_button_text_right',
-                'label' =>  'Button Text Right', 
-                'name' =>  'button_text_right',
-                'prefix' =>  'acf' ,
-                'type' =>  'text',
-                'value' => null,
-                'instructions' =>  '',
-                'required' => 0,
-                'id' =>  '' ,
-                'class' =>  '' ,
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' =>  '',
-                    'class' =>  '' ,
-                    'id' =>  '' ,
-                ],
-                'default_value' =>  '',
-                'placeholder' =>  '',
-                'prepend' =>  '',
-                'append' =>  '',
-                'maxlength' =>  ''
-            ], 
-            [
-                'key' => 'dp_button_link_left',
-                'label' => 'Button Link Left',
-                'name' => 'button_link_left',
-                'prefix' => 'acf',
-                'type' => 'url',
-                'value' => null,
-                'instructions' => '' ,
-                'required' => 0,
-                'id' => '' ,
-                'class' => '' ,
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
-                'default_value' => '',
-                'placeholder' => '',
-            ],
-            [
-                'key' => 'dp_button_link_right',
-                'label' => 'Button Link Right',
-                'name' => 'button_link_right',
-                'prefix' => 'acf',
-                'type' => 'url',
-                'value' => null,
-                'instructions' => '',
-                'required' => 0,
-                'id' => '',
-                'class' => '',
-                'conditional_logic' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '', 
-                    'id' => '', 
-                ],
-                'default_value' => '',
-                'placeholder' => '',
-            ]
-        ];
-        $unvalid_fields = apply_filters('dp_global_acf_fields', $unvalid_fields);
-        return $unvalid_fields;
+        $this->dir = apply_filters('dp_json_dir_location', dp::get_dir() . '/dp-json/');
     }
 
     /**
@@ -210,20 +46,17 @@ class AcfLayouts {
      */
     public function filter_danzerpress_layouts( $field ) 
     {
-        //define('IS_DEV', true);
         //If is admin and acf-field-group bail
         if (is_admin() && get_current_screen()->post_type === 'acf-field-group') {
             return $field;
         }
-
-        $dir = dp::get_dir() . "/dp-json/danzerpress-sections.json";
         
-        if (is_file($dir) && !defined('IS_DEV')) {
-            return $this->dp_include_json_folder($dir);
+        if (is_file($this->file) && !defined('IS_DEV')) {
+            return $this->dp_include_json_folder($this->file);
         }
 
-        $prepend_fields = $this->get_prepend_fields();
-        $unvalid_fields = $this->get_fields();
+        $prepend_fields = apply_filters('dp_prepend_global_acf_fields', []);
+        $unvalid_fields = apply_filters('dp_global_acf_fields', []);
 
         $layouts = [];
 
@@ -240,49 +73,35 @@ class AcfLayouts {
             $field['layouts'][$key]['sub_fields'] = apply_filters("dp_acf_layout_{$layout['name']}_sub_fields", array_merge($sub_fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key)));
         }
 
-        //dp_prepend_global_acf_fields
-        //dpDie($field['layouts']['59fa84633e52e']['sub_fields']);
-        //dpDie($field);
-
         if (defined('IS_DEV')) {
-            $this->dp_acf_write_json_field_group($field, 'danzerpress-sections');
+            $this->dp_acf_write_json_field_group($field);
         }
 
         return $field;
     }
 
-    public function get_hero($fields, $key) 
+    public function dp_acf_write_json_field_group($field_group) 
     {
-        return $fields;
-        $first_unvalid_fields = [
-        ];
+        /**
+         * Let's create dir if it doesn't exist
+         */
+        $this->dp_check_json_dir($this->dir);
 
-        $unvalid_fields = [
-        ];
-
-        //$fields = apply_filters('dp_prepend_acf_fields', $value);
-
-        //merge to the beginning
-        $fields = array_merge($this->dp_acf_get_valid_fields($first_unvalid_fields, $key), $fields);
-
-        //merge to the end
-        $fields = array_merge($fields, $this->dp_acf_get_valid_fields($unvalid_fields, $key));
-        return $fields;
-    }
-
-    public function dp_acf_write_json_field_group( $field_group, $file ) 
-    {
-        // vars
-        $path = DP::get_dir() . '/dp-json';
-        $file = "{$file}.json";
-    
         // write file
-        $f = fopen("{$path}/{$file}", 'w');
+        $f = fopen("{$this->dir}/{$this->file}", 'w');
         fwrite($f, acf_json_encode( $field_group ));
         fclose($f);
         
-        // return
         return true;
+    }
+
+    public function dp_check_json_dir($dir) 
+    {
+        if (!is_dir($dir)) {
+            mkdir($dir);
+        } else {
+            return true;
+        }
     }
 
     public function dp_include_json_folder( $path = '' ) 

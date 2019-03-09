@@ -1,1 +1,5 @@
-{{ dp.header_builder(layout) }}
+<section id="{{section_id}}" class="{{section_class}}" style="{{section_style}}">
+    <div class="danzerpress-wrap">
+        {% if image_url %}
+            {{dpImage(image_url, image_class)}}
+        {% endif %}

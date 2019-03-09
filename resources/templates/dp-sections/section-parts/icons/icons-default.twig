@@ -4,11 +4,11 @@
             {{(sub.link) ? '<a href="' ~ sub.link ~ '" class="danzerpress-hash">' : '' }}
                 <div class="danzerpress-box danzerpress-background">
                     {% if (sub.image) %}
-                        <div class="danzerpress-icon-box wow zoomIn">
+                        <div class="danzerpress-icon-box" data-aos="zoomIn">
                             {{dpImage(sub.image)}}
                         </div>
                     {% endif %}
-                    <div class="danzerpress-content-box wow fadeInUp">
+                    <div class="danzerpress-content-box" data-aos="fadeInUp">
                         <h4>{{ sub.title }}</h4>
                         <p>{{ sub.description }}</p>
                     </div>

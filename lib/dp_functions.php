@@ -22,3 +22,7 @@ function has_dp_blocks( $post = null ) {
  
     return false !== strpos( (string) $post, '<!-- wp:dp/' );
 }
+
+function get_section_iterator() {
+    return Danzerpress\HeaderBuilder::get_iterator();
+}
