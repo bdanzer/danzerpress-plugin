@@ -1,5 +1,1 @@
 node_modules
-
-# Hiding blocks for now until they are ready
-dist/blocks*
-resources/gutenberg

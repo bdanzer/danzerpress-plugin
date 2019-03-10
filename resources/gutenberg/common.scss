@@ -1,0 +1,32 @@
+// Colors.
+$black: rgb(41, 41, 41);
+$white: #f4f4f4;
+$gray: #dedede;
+$green: #bada55;
+$red: orangered;
+
+/**
+** variables
+**/
+@import '../sass/variables/variables';
+
+/**
+** Sections
+**/
+@import "../sass/sections/global";
+@import "../sass/sections/icons";
+@import "../sass/sections/map";
+@import "../sass/sections/media";
+@import "../sass/sections/price";
+@import "../sass/sections/slick";
+@import "../sass/sections/team";
+@import "../sass/sections/testimonial";
+@import "../sass/sections/action";
+@import "../sass/sections/text";
+@import "../sass/sections/gallery";
+@import "../sass/sections/code";
+
+/**
+** Danzerpress layouts
+**/
+@import '../sass/danzerpress/danzerpress-layouts';
