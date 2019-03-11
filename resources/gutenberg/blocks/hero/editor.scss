@@ -1,1 +1,7 @@
 @import "../../../sass/sections/hero";
+
+[data-type="dp/*"] {
+    .mce-content-body {
+        line-height: 1;
+    }
+}

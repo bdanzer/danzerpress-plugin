@@ -34,13 +34,14 @@ class Edit extends Component
                         padding: section_padding,
                         background: 'transparent'
                     }}>
-                    <div className="danzerpress-two-thirds danzerpress-col-center danzerpress-align-center danzerpress-hero-normal">
+                    <div className="danzerpress-col-1 danzerpress-align-center danzerpress-hero-normal">
                         {/* {% include 'dp-sections/section-parts/section_icon.twig' %} */}
                         <div className="danzerpress-section-content {{layout.text_align}}">
                             <DanzerPressContent 
                                 props={this.props}
                                 attributes={this.props.attributes}>
                             </DanzerPressContent>
+                            {/* <DanzerPressButton></DanzerPressButton> */}
                             {/* {% include 'dp-sections/section-parts/content-buttons.twig' %} */}
                         </div>
                     </div>
