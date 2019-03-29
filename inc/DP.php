@@ -22,7 +22,7 @@ class DP
             return;
         }
         $this->set_constants();
-        add_action('acf/init', [$this, 'my_acf_init']);
+        add_filter('acf/fields/google_map/api', [$this, 'my_acf_google_map_api']);
 
         new Hooks;
         new DanzerpressFilters;
@@ -50,8 +50,10 @@ class DP
         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
     }
 
-    public function my_acf_init() {
-        acf_update_setting('google_api_key', get_field('google_map_api', 'option'));
+    public function my_acf_google_map_api($api)
+    {
+        $api['key'] = get_field('google_map_api', 'option');
+        return $api;
     }
 
     public static function get_url()
