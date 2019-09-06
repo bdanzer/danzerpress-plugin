@@ -15,6 +15,12 @@ class DP
 
     public function __construct() 
     {
+        /**
+         * Caching clearing to add?
+         * $loader = new \TimberLoader();
+         * $loader->clear_cache_timber();
+         * $loader->clear_cache_twig();
+         */
         do_action('dp_plugin_pre_load');
 
         if (!class_exists('Danzerpress\\DP_Theme')) {

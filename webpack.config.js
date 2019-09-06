@@ -89,8 +89,17 @@ var config = {
                 test: /style\.scss$/,
                 exclude: /node_modules/,
                 use: blocksCSSPlugin.extract(gutenbergConfig)
+            },
+            {
+                test: /\.twig$/,
+                use: {
+                    loader: 'twig-loader'
+                }
             }
         ]
+    },
+    node: {
+        fs: 'empty'
     },
     plugins: plugins
 };

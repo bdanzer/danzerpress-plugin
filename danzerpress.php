@@ -40,7 +40,7 @@ $myUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'danzerpress-plugin'
 );
-$myUpdateChecker->setBranch((get_field('dp_env', 'options')) ?: 'master');
+$myUpdateChecker->setBranch((function_exists('get_field') && get_field('dp_env', 'options')) ? get_field('dp_env', 'options') : 'master');
 
 add_action('dp_theme_loaded', function() {
     if (!function_exists('get_field')) {
