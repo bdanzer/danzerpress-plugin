@@ -8,6 +8,9 @@ use Danzerpress\acf\AcfFields;
 use Danzerpress\hooks\Hooks;
 use Danzerpress\upgrader\AcfUpgrader;
 use Danzerpress\template\PluginTemplates;
+use Danzerpress\autoinstaller\RegisterPlugins;
+use Danzerpress\DP_Theme;
+use Danzerpress\Twig\TwigLoading;
 
 class DP 
 {
@@ -15,6 +18,8 @@ class DP
 
     public function __construct() 
     {
+        new DP_Theme;
+
         /**
          * Caching clearing to add?
          * $loader = new \TimberLoader();
@@ -23,21 +28,23 @@ class DP
          */
         do_action('dp_plugin_pre_load');
 
-        if (!class_exists('Danzerpress\\DP_Theme')) {
-            add_action( 'admin_notices', [$this, 'sample_admin_notice__error'] );
-            return;
-        }
+        // if (!class_exists('Danzerpress\\DP_Theme')) {
+        //     add_action( 'admin_notices', [$this, 'sample_admin_notice__error'] );
+        //     return;
+        // }
         $this->set_constants();
         add_filter('acf/fields/google_map/api', [$this, 'my_acf_google_map_api']);
 
         new Hooks;
         new DanzerpressFilters;
+        new TwigLoading;
         new TwigFunctions;
         new PluginAssetLoader;
         new AcfFields;
         new AcfLayouts;
         new AcfUpgrader;
         new PluginTemplates;
+        new RegisterPlugins;
 
         $boot = new Boot();
         $boot->load_sections();

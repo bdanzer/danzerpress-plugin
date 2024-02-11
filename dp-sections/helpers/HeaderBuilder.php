@@ -54,9 +54,9 @@ class HeaderBuilder
             $classes[] = $this->text_align;
         }
 
-		if (self::$iterator == 1 && get_field('full_screen_section_1', 'option') && is_front_page()) {
-			$classes[] = 'dp-full-height';
-        }
+		// if (self::$iterator == 1 && get_field('full_screen_section_1', 'option') && is_front_page()) {
+		// 	$classes[] = 'dp-full-height';
+        // }
         
         if ($classes) {
 			$classes = implode(" ", $classes);

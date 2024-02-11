@@ -2,7 +2,7 @@
 /*
 Plugin Name: Danzerpress Plugin
 Description: Adds Danzerpress Sections to theme and other WordPress integrations
-Version: 4.4.0
+Version: 5.0.0
 */
 
 namespace Danzerpress;
@@ -29,23 +29,39 @@ if ( file_exists( $autoload_path ) ) {
     require_once( $autoload_path );
 }
 
-include DP_PLUGIN_DIR . '/lib/dp_functions.php';
+$timber = new \Timber\Timber();
+
+require DP_PLUGIN_DIR . '/lib/dp_functions.php';
+require DP_PLUGIN_DIR . '/lib/plugin_activation.php';
+require DP_PLUGIN_DIR . '/resources/typescript-wp-block/typescript-wp-block.php';
 
 /**
  * Allows updates to be sent via github
  */
 require 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/bdanzer/danzerpress-plugin/',
-	__FILE__,
-	'danzerpress-plugin'
-);
-$myUpdateChecker->setBranch((function_exists('get_field') && get_field('dp_env', 'options')) ? get_field('dp_env', 'options') : 'master');
 
-add_action('dp_theme_loaded', function() {
+add_filter('acf/settings/load_json', function ($paths) {
+    // wp_die();
+    // Remove the default path (usually the theme's acf-json directory)
+    unset($paths[0]);
+
+    // Add your plugin's acf-json directory to the paths array
+    $paths[] = plugin_dir_path(__FILE__) . 'acf-json';
+
+    return $paths;
+});
+
+add_action('plugins_loaded', function() {
     if (!function_exists('get_field')) {
         return;
     }
+
+    $myUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
+        'https://github.com/bdanzer/danzerpress-plugin/',
+        __FILE__,
+        'danzerpress-plugin'
+    );
+    $myUpdateChecker->setBranch((function_exists('get_field') && get_field('dp_env', 'options')) ? get_field('dp_env', 'options') : 'master');
     
     new DP;
 });

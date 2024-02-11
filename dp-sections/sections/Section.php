@@ -118,7 +118,7 @@ class Section
 
 		$context['dp'] = new AcfContextHelper;
 		$context['layout'] = $layout;
-
+		
 		if (!isset($context['layout']['sections'])) {
 			$context['layout']['sections'] = [
 				'section_name' => $called_class::$section_name,

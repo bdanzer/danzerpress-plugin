@@ -63,6 +63,22 @@ class GutenbergLoader
 			array( 'wp-edit-blocks' ) // Dependency to include the CSS after it.
 			// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
 		);
+
+		wp_enqueue_script(
+			'my_block-cgb-block-js-2', // Handle.
+			dp::get_url() . 'resources/typescript-wp-block/build/boilerplate.js', // Block.build.js: We register the block here. Built with Webpack.
+			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+			// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: File modification time.
+			true // Enqueue the script in the footer.
+		);
+
+		// Styles.
+		wp_enqueue_style(
+			'my_block-cgb-block-editor-css-2', // Handle.
+			dp::get_url() . 'resources/typescript-wp-block/build/style-boilerplate.css', // Block editor CSS.
+			array( 'wp-edit-blocks' ) // Dependency to include the CSS after it.
+			// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
+		);
 	}
 
 	/**

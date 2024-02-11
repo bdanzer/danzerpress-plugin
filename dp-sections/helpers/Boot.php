@@ -22,6 +22,8 @@ class Boot
     {
         $dir = dp::get_dir();
         $files = glob($dir . '/dp-sections/sections/*.php');
+
+		// echo 'loading';
 		
 		/**
 		 * File name dictates class used
@@ -38,7 +40,7 @@ class Boot
 			$class = new $class();
 
 			do_action("boot_section_{$basename}");
-
+			
 			new RegisterBlock($class->get_block_namespace(), $class->get_attributes(), [$class, 'block_render'], true);
 
 			self::$sections[$class::$section_slug] = [

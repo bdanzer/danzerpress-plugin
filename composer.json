@@ -24,5 +24,13 @@
                 "inc/chunks"
             ]
         }
+    },
+    "require": {
+        "timber/timber": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

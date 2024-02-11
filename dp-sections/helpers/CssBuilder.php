@@ -33,8 +33,11 @@ class CssBuilder
         $css = [];
         $string = '';
         $this->section_number = 0;
-        foreach ($blocks as $block) {
-            if (false === strpos($block['blockName'], 'dp'))
+        foreach ($blocks as $block) {     
+            if ($block['blockName'] === null)
+                continue;
+
+            if (false === strpos($block['blockName'], '-section'))
                 continue;
                 
             $this->section_number++;
